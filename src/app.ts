@@ -4,11 +4,11 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import session from "express-session";
-import errorhandler from "errorhandler";
 import passport from 'passport';
 import mongo from 'connect-mongo';
 import path from "path";
 import compression from "compression";  // compresses requests
+import indexRouter from "./routes/index";
 
 import cors from 'cors';
 const MongoStore  = mongo(session);
@@ -17,12 +17,14 @@ const app = express();
 
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
+app.set('views', path.join(__dirname, '../views')); // this is the folder where we keep our pug files
 app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
 app.use(compression())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+// import environmental variables from our variables.env file
+dotenv.config({ path: 'variable.env' })
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, 'public')));
@@ -45,5 +47,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// // // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
-// app.use(flash());
+//  Express Routing URLS
+app.use('/', indexRouter);
+
+export default app;

@@ -1,5 +1,8 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv'
+import app from './app';
+import config from './config';
+import errorHandler from "errorhandler";
 // Make sure we are running node 7.6+
 const [major, minor] = process.versions.node.split('.').map(parseFloat);
 if (major < 7 || (major === 7 && minor <= 5)) {
@@ -9,21 +12,20 @@ if (major < 7 || (major === 7 && minor <= 5)) {
   process.exit();
 }
 
-// import environmental variables from our variables.env file
-dotenv.config({ path: '.env' })
 
 // Connect to our Database and handle any bad connections
-mongoose.connect(process.env.DATABASE, {useNewUrlParser: true});
+mongoose.connect(config.database, {useNewUrlParser: true});
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', err => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
 
-const app = require('./app');
 
-app.set('port', process.env.PORT || 7777);
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express running → PORT ${server.address().port}`);
+app.use(errorHandler());
+
+const server = app.listen(config.port, () => {
+  console.log(`Express running → PORT ${config.port}`);
 });
 
+export default server;
