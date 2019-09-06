@@ -5,6 +5,9 @@ section {
     padding-top: 3rem;
     padding-bottom: 2rem;
 }
+.g-recaptcha{
+    padding-bottom: 1rem;
+}
 .inner {
     max-width: 900px;
     margin: 0 auto;

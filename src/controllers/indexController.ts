@@ -1,6 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import { validationResult, } from 'express-validator';
 import * as mail from '../handlers/mail';
+const Recaptcha = require('express-recaptcha').RecaptchaV2;
+const  recaptcha = new Recaptcha(`${process.env.GOOGLE_SITE_KEY}`, `${process.env.GOOGLE_PRIVATE_KEY}`);
+
 
 export const home = (req: Request, res: Response) => {
   res.render('home', { title: 'Home' })
@@ -21,10 +24,10 @@ export const contactForm = (req: Request, res: Response, ) => {
         title: 'Contact',
         body: req.body,
         flashes: req.flash()
-      });
+        });
     } else {
         mail.send(req, res)
-    }
+ }
   } catch (e) {
     
     res.redirect('/contact');

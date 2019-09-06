@@ -39,7 +39,14 @@ block content
                  label(for="form_message") Message *
                  textarea#form_message.form-control(name="message" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message.")
                  .help-block.with-errors
+             br
+             .col-md-12
+               .g-recaptcha(name="google-recap", data-sitekey="6Lc5FLcUAAAAAAdxwth9zrNgPhnRb7ZQ5yYk01KS")
+             br
              .col-md-12
                input.btn.btn-success.btn-send(type="submit" value="Send message")
-          
+              
+              
+
+         
        

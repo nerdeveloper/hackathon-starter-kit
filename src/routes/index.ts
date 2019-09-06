@@ -1,13 +1,13 @@
 import express from 'express';
 import {Request, Response, NextFunction} from 'express'
-import {check, sanitizeBody, } from 'express-validator';
+import {check, sanitizeBody,  } from 'express-validator';
 
 const router = express.Router();
 //import * as userController from '../controllers/userController';
 import * as indexController from '../controllers/indexController';
 
 router.get('/',  indexController.home)
-router.get('/contact', indexController.contact) 
+router.get('/contact',  indexController.contact) 
 
 router.post('/contact',
 [
@@ -27,6 +27,7 @@ router.post('/contact',
     }),
 
     check('message', 'Message cannot be blank').not().isEmpty(),
+    check('g-recaptcha-response', "Please validate your Google reCAPTCHA").not().isEmpty()
 
 ],
 (req: Request, res: Response) => {
