@@ -12,7 +12,6 @@
     "serve-debug": "nodemon --inspect dist/server.js",
     "bundle": "webpack -w --display-max-modules 0",
     "build:dev": "concurrently \"npm run serve:dev\" \"npm run bundle\" --names \"💻,📦\" --prefix name"
-    
   },
   "keywords": [],
   "author": "Obinna Odirionye",
@@ -21,6 +20,7 @@
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "connect-mongo": "^3.0.0",
+    "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "errorhandler": "^1.5.1",

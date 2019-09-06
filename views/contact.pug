@@ -1,15 +1,51 @@
 extends layout
 block content
-
-  form
-    .form-group
-      label(for='exampleInputEmail1') Email address
-      input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' placeholder='Enter email')
-      small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
-    .form-group
-      label(for='exampleInputPassword1') Password
-      input#exampleInputPassword1.form-control(type='password' placeholder='Password')
-    .form-check
-      input#exampleCheck1.form-check-input(type='checkbox')
-      label.form-check-label(for='exampleCheck1') Check me out
-    button.btn.btn-primary(type='submit') Submit
+  .container
+    .row
+     .col-xl-8.offset-xl-2.py-5
+       form#contact-form(method="post" action="contact.php" role="form")
+         .messages
+         .controls
+           .row
+             .col-md-6
+               .form-group
+                 label(for="form_name") Firstname *
+                 input#form_name.form-control(type="text" name="name" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.")
+                 .help-block.with-errors
+             .col-md-6
+               .form-group
+                 label(for="form_lastname") Lastname *
+                 input#form_lastname.form-control(type="text" name="surname" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.")
+                 .help-block.with-errors
+           .row
+             .col-md-6
+               .form-group
+                 label(for="form_email") Email *
+                 input#form_email.form-control(type="email" name="email" placeholder="Please enter your email *" required="required" data-error="Valid email is required.")
+                 .help-block.with-errors
+             .col-md-6
+               .form-group
+                 label(for="form_need") Please specify your need *
+                 select#form_need.form-control(name="need" required="required" data-error="Please specify your need.")
+                   option(value="")
+                   option(value="Request quotation") Request quotation
+                   option(value="Request order status") Request order status
+                   option(value="Request copy of an invoice") Request copy of an invoice
+                   option(value="Other") Other
+                 .help-block.with-errors
+           .row
+             .col-md-12
+               .form-group
+                 label(for="form_message") Message *
+                 textarea#form_message.form-control(name="message" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message.")
+                 .help-block.with-errors
+             .col-md-12
+               input.btn.btn-success.btn-send(type="submit" value="Send message")
+           .row
+             .col-md-12
+               p.text-muted
+                 strong *
+                 |  These fields are required. Contact form template by
+                 a(href="https://bootstrapious.com/p/how-to-build-a-working-bootstrap-contact-form" target="_blank") Bootstrapious
+                 | .
+       

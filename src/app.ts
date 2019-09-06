@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import session from "express-session";
 import passport from 'passport';
 import mongo from 'connect-mongo';
+const cookieParser = require('cookie-parser');
 import path from "path";
 import compression from "compression";  // compresses requests
 import indexRouter from "./routes/index";
@@ -33,7 +34,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+// populates req.cookies with any cookies that came along with the request
+app.use(cookieParser())
 
 app.use(session({
     resave: false,
