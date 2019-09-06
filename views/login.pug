@@ -1,0 +1,33 @@
+extends layout
+block content
+ .container
+    .row
+     .col-xl-8.offset-xl-2.py-5
+       form#contact-form(method="post" action="login" role="form")
+         .messages
+         .controls
+           .row
+             .col-md-12
+               .form-group
+                 label(for="form_email") Email *
+                 input#form_email.form-control(type="email" name="email" placeholder="Please enter your email *" required="required")
+                 .help-block.with-errors
+           .row
+            .col-md-12
+              .form-group
+                label(for="form_email") Password *
+                input#form_email.form-control(type="password" name="password" placeholder="Please enter your password *" required="required" )
+                .help-block.with-errors
+           .row
+            .col-md-12
+              .form-group
+                label(for="form_email") Confirm Password *
+                input#form_email.form-control(type="password" name="confirmPassword" placeholder="Please re-enter your password *" required="required" )
+                .help-block.with-errors
+           
+            .col-md-12
+              .g-recaptcha(name="google-recap", data-sitekey="6Lc5FLcUAAAAAAdxwth9zrNgPhnRb7ZQ5yYk01KS")
+            .col-md-12
+              input.btn.btn-success.btn-send(type="submit" value="Login")
+              
+              

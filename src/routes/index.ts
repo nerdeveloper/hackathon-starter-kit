@@ -3,7 +3,7 @@ import {Request, Response, NextFunction} from 'express'
 import {check, sanitizeBody,  } from 'express-validator';
 
 const router = express.Router();
-//import * as userController from '../controllers/userController';
+import * as authController from '../controllers/authController';
 import * as indexController from '../controllers/indexController';
 
 router.get('/',  indexController.home)
@@ -33,6 +33,8 @@ router.post('/contact',
 (req: Request, res: Response) => {
     indexController.contactForm(req, res);
 });
+
+router.get('/login', authController.login) ;
 
 
 
