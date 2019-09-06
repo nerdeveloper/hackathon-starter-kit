@@ -44,6 +44,7 @@
     "@types/body-parser": "^1.17.0",
     "@types/compression": "^0.0.36",
     "@types/connect-mongo": "^0.0.42",
+    "@types/cookie-parser": "^1.4.2",
     "@types/cors": "^2.8.6",
     "@types/dotenv": "^6.1.1",
     "@types/errorhandler": "^0.0.32",
