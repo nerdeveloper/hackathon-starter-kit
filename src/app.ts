@@ -8,7 +8,8 @@ import passport from 'passport';
 import mongo from 'connect-mongo';
 import cookieParser from 'cookie-parser';
 import path from "path";
-import compression from "compression";  // compresses requests
+import flash from 'connect-flash';
+import compression from "compression";  
 import indexRouter from "./routes/index";
 
 import cors from 'cors';
@@ -45,6 +46,9 @@ app.use(session({
         autoReconnect: true
     })
 }));
+
+// The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+app.use(flash());
 
 // // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
