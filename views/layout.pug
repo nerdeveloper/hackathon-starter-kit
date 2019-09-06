@@ -15,6 +15,18 @@ html
         script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
   body
     include partials/navbar
+    br
+    block messages
+      if locals.flashes
+        .section
+           .inner
+             .flash-messages
+               - const categories = Object.keys(locals.flashes)
+               each category in categories
+                 each message in flashes[category]
+                   .flash(class=`flash--${category}`)
+                     p.flash__text!= message
+                     button.flash__remove(onClick="this.parentElement.remove()") &times; 
     block content
     include partials/footer
     // JavaScript files

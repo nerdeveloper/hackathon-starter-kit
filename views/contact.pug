@@ -3,15 +3,15 @@ block content
   .container
     .row
      .col-xl-8.offset-xl-2.py-5
-       form#contact-form(method="post" action="contact.php" role="form")
+       form#contact-form(method="post" action="contact" role="form")
          .messages
          .controls
            .row
              .col-md-6
                .form-group
                  label(for="form_name") Firstname *
-                 input#form_name.form-control(type="text" name="name" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.")
-                 .help-block.with-errors
+                 input#form_name.form-control(type="text" name="name" placeholder="Please enter your firstname *" data-error="Firstname is required.")
+                
              .col-md-6
                .form-group
                  label(for="form_lastname") Lastname *
@@ -25,12 +25,12 @@ block content
                  .help-block.with-errors
              .col-md-6
                .form-group
-                 label(for="form_need") Please specify your need *
+                 label(for="form_need") Please Framework of Choice *
                  select#form_need.form-control(name="need" required="required" data-error="Please specify your need.")
                    option(value="")
-                   option(value="Request quotation") Request quotation
-                   option(value="Request order status") Request order status
-                   option(value="Request copy of an invoice") Request copy of an invoice
+                   option(value="Angular") Angular
+                   option(value="Vue") Vue
+                   option(value="React") React
                    option(value="Other") Other
                  .help-block.with-errors
            .row
@@ -41,11 +41,5 @@ block content
                  .help-block.with-errors
              .col-md-12
                input.btn.btn-success.btn-send(type="submit" value="Send message")
-           .row
-             .col-md-12
-               p.text-muted
-                 strong *
-                 |  These fields are required. Contact form template by
-                 a(href="https://bootstrapious.com/p/how-to-build-a-working-bootstrap-contact-form" target="_blank") Bootstrapious
-                 | .
+          
        
