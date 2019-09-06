@@ -3,9 +3,10 @@
     "tabWidth": 4,
     "useTabs": false,
     "semi": true,
-    "singleQuote": true,
+    "singleQuote": false,
     "trailingComma": "all",
     "bracketSpacing": false,
     "jsxBracketSameLine": false,
     "proseWrap": "always"
+
   }

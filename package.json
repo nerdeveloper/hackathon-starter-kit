@@ -4,12 +4,15 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "npm run serve:dev",
-    "serve:dev": "NODE_ENV=development nodemon dist/server.js",
+    "start": "npm run build:dev",
+    "serve:dev": "NODE_ENV=development nodemon dist/server.js --public",
     "watch-node": "nodemon dist/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
-    "serve-debug": "nodemon --inspect dist/server.js"
+    "serve-debug": "nodemon --inspect dist/server.js",
+    "bundle": "webpack -w --display-max-modules 0",
+    "build:dev": "concurrently \"npm run serve:dev\" \"npm run bundle\" --names \"💻,📦\" --prefix name"
+    
   },
   "keywords": [],
   "author": "Obinna Odirionye",
@@ -36,6 +39,8 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
     "@types/body-parser": "^1.17.0",
     "@types/compression": "^0.0.36",
     "@types/connect-mongo": "^0.0.42",
@@ -58,7 +63,13 @@
     "@types/validator": "^10.11.1",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
-    "concurrently": "^4.1.0",
+    "autoprefixer": "^9.4.10",
+    "babel-core": "6.26.3",
+    "babel-loader": "8.0.5",
+    "babel-plugin-transform-util-promisify": "^0.2.2",
+    "babel-preset-env": "^1.7.0",
+    "concurrently": "^4.1.2",
+    "css-loader": "^3.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.1.0",
@@ -67,8 +78,11 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.17.0",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.2",
+    "webpack": "^3.4.1"
   }
 }
