@@ -1,6 +1,6 @@
 import express from 'express';
 import {Request, Response, NextFunction} from 'express'
-import {check, sanitizeBody,  } from 'express-validator';
+import {check, sanitizeBody, body  } from 'express-validator';
 
 const router = express.Router();
 import * as authController from '../controllers/authController';
@@ -36,7 +36,31 @@ router.post('/contact',
 
 router.get('/login', authController.login) ;
 
+
+
 router.get('/register', authController.register);
+
+router.post('/register',
+    [
+        /**Check the form and validated it before submitting  */
+        check('email', 'Email is not valid').isEmail(),
+        check('email').normalizeEmail({
+            gmail_remove_subaddress: false, // correct
+            outlookdotcom_remove_subaddress: false,
+            gmail_remove_dots: false,
+            icloud_remove_subaddress: false,
+
+        }),
+
+        body("password", "Password cannot be blank").not().isEmpty(),
+        check("confirmPassword", "Confirmed Password cannot be blank!").not().isEmpty(),
+        check('confirmPassword', 'Passwords do not match').custom((value, {req}) => (value === req.body.password)),
+        check('g-recaptcha-response', "Please validate your Google reCAPTCHA").not().isEmpty()
+
+    ],(req: Request, res: Response, next:NextFunction) => {
+        authController.registerForm(req, res, next),
+        authController.login;
+    });
 
 
 
