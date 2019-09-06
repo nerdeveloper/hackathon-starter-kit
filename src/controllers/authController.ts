@@ -6,3 +6,9 @@ export const login= (req: Request, res: Response) => {
 }
 
 
+export const register = (req: Request, res: Response) => {
+    res.render('register', { title: 'Register' })
+  }
+  
+  
+  
