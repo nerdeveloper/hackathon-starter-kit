@@ -1,5 +1,6 @@
 
 import express from 'express';
+import {Request, Response, NextFunction} from 'express'
 
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
@@ -11,11 +12,11 @@ import path from "path";
 import flash from 'connect-flash';
 import compression from "compression";  
 import indexRouter from "./routes/index";
-
 import cors from 'cors';
 const MongoStore  = mongo(session);
 // Create Express server
 const app = express();
+
 
 
 // view engine setup
@@ -61,6 +62,7 @@ app.use((req, res, next) => {
 // // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 //  Express Routing URLS
 app.use('/', indexRouter);

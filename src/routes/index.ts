@@ -36,6 +36,25 @@ router.post('/contact',
 
 router.get('/login', authController.login) ;
 
+router.post('/login',
+    [
+        /**Check the form and validated it before submitting  */
+        check('email', 'Email is not valid').isEmail(),
+        check('email').normalizeEmail({
+            gmail_remove_subaddress: false, // correct
+            outlookdotcom_remove_subaddress: false,
+            gmail_remove_dots: false,
+            icloud_remove_subaddress: false,
+
+        }),
+
+        body("password", "Password cannot be blank").not().isEmpty(),
+        check('g-recaptcha-response', "Please validate your Google reCAPTCHA").not().isEmpty()
+
+    ],(req: Request, res: Response) => {
+        authController.loginForm(req, res);
+    });
+
 
 
 router.get('/register', authController.register);
