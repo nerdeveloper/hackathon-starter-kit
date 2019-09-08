@@ -7,10 +7,21 @@ import '../handlers/passport';
 
 
 export const login = (req: Request, res: Response) => {
+    if(req.user){
+       return  res.redirect('/')
+    }
     res.render('login', { title: 'Login' })
-}
+};
 
-export const loginForm = async (req: Request, res: Response) => {
+export const logout = (req:Request, res:Response) => {
+    req.logout();
+    req.flash('success', 'You are now logged out! 👋');
+    res.redirect('/');
+  };
+  
+
+
+export const loginForm =  (req: Request, res: Response) => {
     try {
         const errors = validationResult(req);
 
@@ -26,28 +37,17 @@ export const loginForm = async (req: Request, res: Response) => {
             if (!req.body.email || !req.body.password) {
                 req.flash('error', 'Something is wrong with your input')
             }
-           await passport.authenticate('local', (err:any, user:any) => {
-                if(err || !user) {
-                    req.flash("error", "Invalid Email address or Password")
-                    res.redirect('/login')
-                    return;
-                    
-                }
-                req.login(user, (err) => {
-                    if(err){
-                        console.log('hello');
-                       return req.flash('error', 'Authentication failed!');
-                    } else{
-                        req.flash("success", "Login Successful!");
-                        res.redirect('/contact');
-                    }
-
-                  return
-                  
-                })
-            })(req, res)
+            
+            passport.authenticate('local', {
+                failureRedirect: '/login',
+                failureFlash: 'Incorrect Email Address or Password!',
+                successRedirect: '/',
+                successFlash: 'You are now logged in!',
+              })
+            
+            (req, res)
         }
-
+        
     } catch (e) {
 
         res.redirect('/register');
@@ -56,11 +56,11 @@ export const loginForm = async (req: Request, res: Response) => {
 
 }
 
-exports.isLoggedIn = (req: Request, res: Response, next: NextFunction) => {
+export const isLoggedIn = (req: Request, res: Response, next: NextFunction) => {
     // check if the user is authenticated
     if (req.isAuthenticated()) {
-        next(); // carry on to the login
-        return;
+        return next(); // carry on to the login
+        
     } else {
         req.flash('error', 'Oops, you must be logged in to do that!');
         res.redirect('/login');

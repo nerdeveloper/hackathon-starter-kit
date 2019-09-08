@@ -1,18 +1,18 @@
 
 import express from 'express';
-import {Request, Response, NextFunction} from 'express'
 
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import session from "express-session";
 import passport from 'passport';
 import mongo from 'connect-mongo';
-import cookieParser from 'cookie-parser';
 import path from "path";
 import flash from 'connect-flash';
 import compression from "compression";  
 import indexRouter from "./routes/index";
+import authRouter from './routes/auth'
 import cors from 'cors';
+
 const MongoStore  = mongo(session);
 // Create Express server
 const app = express();
@@ -36,8 +36,6 @@ app.use(express.static(path.join(__dirname, '../public')));
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// populates req.cookies with any cookies that came along with the request
-app.use(cookieParser());
 
 app.use(session({
     resave: false,
@@ -48,23 +46,26 @@ app.use(session({
     })
 }));
 
+// Passport JS is what we use to handle our logins
+app.use(passport.initialize());
+app.use(passport.session());
+
 // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
 app.use(flash());
 
 // pass variables to our templates + all requests
 app.use((req, res, next) => {
     res.locals.flashes = req.flash();
-    res.locals.user = req.user || null;
+    res.locals.user  = req.user || null;
     res.locals.currentPath = req.path;
     next();
   });
 
-// // Passport JS is what we use to handle our logins
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 //  Express Routing URLS
-app.use('/', indexRouter);
+app.use('/', indexRouter,);
+app.use('/auth', authRouter )
 
 export default app;
