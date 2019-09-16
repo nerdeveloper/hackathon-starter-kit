@@ -113,3 +113,24 @@ section {
 .flash p {
     margin: 0;
 }
+.btn-google {
+    color: white;
+    background-color: #ea4335;
+}
+  
+.btn-facebook {
+    color: white;
+    background-color: #3b5998;
+}
+.btn-twitter {
+    color: white;
+    background-color: #38A1F3;
+}
+.btn-github {
+    color: white;
+    background-color: #24292e;
+} 
+.btn-linkedIn {
+    color: white;
+    background-color: #24292e;
+} 
