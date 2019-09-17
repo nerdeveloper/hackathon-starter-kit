@@ -124,13 +124,18 @@ section {
 }
 .btn-twitter {
     color: white;
-    background-color: #38A1F3;
+    background-color: #1da1f2;
 }
 .btn-github {
     color: white;
     background-color: #24292e;
 } 
-.btn-linkedIn {
+.btn-linkedin {
     color: white;
-    background-color: #24292e;
+    background-color: #007bb5;
 } 
+.btn-slack {
+    color: white;
+    background-color: #4a154b;
+} 
+
