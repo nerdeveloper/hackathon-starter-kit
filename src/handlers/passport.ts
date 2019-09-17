@@ -53,8 +53,6 @@ passport.use(new githubStrategy({
   clientSecret: `${process.env.GITHUB_CLIENT_SECRET}`,
   callbackURL: "/auth/github/callback"
 }, ( accessToken, refreshToken, profile, done) => {
-  console.log(accessToken);
-  console.log(profile);
  //@ts-ignore
   User.findOne({ 'email' : profile._json.email }, (err, user) => {
     if (err)
