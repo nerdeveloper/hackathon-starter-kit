@@ -21,8 +21,6 @@ passport.use(new googleStrategy({
   clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
   callbackURL: "/auth/google/callback"
 }, ( accessToken, refreshToken, profile, done) => {
-  console.log(profile);
-  console.log(accessToken);
   User.findOne({ 'email' : profile._json.email }, (err, user) => {
     if (err)
       return done(err);
