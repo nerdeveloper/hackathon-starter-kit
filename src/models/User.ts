@@ -34,6 +34,7 @@ export type UserDocument = mongoose.Document & {
 
     },
     googleId: String,
+    githubId: String,
     token: String,
 
     resetPasswordToken: String,
