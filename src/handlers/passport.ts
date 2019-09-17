@@ -83,12 +83,13 @@ passport.use(new githubStrategy({
 // Twitter Authentication strategy
 const twitterStrategy = passportTwitter.Strategy 
 passport.use(new twitterStrategy({
-  consumerKey: '',
-  consumerSecret: '',
-  callbackURL: "/auth/twitter/callback"
+  consumerKey: `${process.env.TWITTER_CONSUMER_KEY}`,
+  consumerSecret: `${process.env.TWITTER_CONSUMER_SECRET}`,
+  callbackURL: "/auth/twitter/callback",
+  includeEmail: true
 }, ( accessToken, refreshToken, profile, done) => {
 
-  User.findOne({ 'email' : profile._json.email }, (err, user) => {
+  User.findOne({ 'email' : profile._json.email}, (err, user) => {
     if (err)
       return done(err);
 
@@ -97,7 +98,7 @@ passport.use(new twitterStrategy({
           
     } else {
    
-      const user = new User({ githubId: profile.id, email: profile._json.email, token: accessToken });
+      const user = new User({ twitterId: profile.id, email: profile._json.email, token: accessToken });
       user.save((err) => {
         if (err) {
           throw err;
