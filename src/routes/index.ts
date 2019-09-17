@@ -77,8 +77,7 @@ router.post('/register',
         check('g-recaptcha-response', "Please validate your Google reCAPTCHA").not().isEmpty()
 
     ],(req: Request, res: Response, next:NextFunction) => {
-        authController.registerForm(req, res, next),
-        authController.login;
+        authController.registerForm(req, res, next)
     });
 
     router.get('/logout', authController.logout) ;

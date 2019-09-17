@@ -91,12 +91,9 @@ export const registerForm = async (req: Request, res: Response, next: NextFuncti
                     req.flash(`error`, `${err.message}`);
                     res.redirect('/register')
                 } else {
-                    passport.authenticate('local', {
-                        session: true
-                    })(req, res, () => {
                     req.flash(`success`, `${req.body.email} has been registered! Please Login`);
                     res.redirect('/login')
-                    })
+                  
                     
                 }
             })

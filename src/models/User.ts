@@ -17,6 +17,8 @@ export type UserDocument = mongoose.Document & {
     resetPasswordExpires: Date,
     gravatar: String,
     posts:any,
+    token:any,
+    googleId:String,
 }
 
 
@@ -31,6 +33,8 @@ export type UserDocument = mongoose.Document & {
 
 
     },
+    googleId: String,
+    token: String,
 
     resetPasswordToken: String,
     resetPasswordExpires: Date,
@@ -40,13 +44,11 @@ export type UserDocument = mongoose.Document & {
     toObject: { virtuals: true },
 },
 );
-
 userSchema.virtual('posts', {
     ref: 'Post',
     localField: '_id', 
     foreignField: 'author'
 });
-
 
 userSchema.virtual('gravatar').get(function(){
     const hash = md5(this.email);
@@ -57,6 +59,6 @@ userSchema.plugin(passportLocalMongoose, {usernameField: 'email',   errorMessage
     UserExistsError: 'A user with the given email is already registered'
 }});
 
-userSchema.plugin(mongoosedbErrorHandler)
+userSchema.plugin(mongoosedbErrorHandler);
 
 export const User = mongoose.model("User", userSchema as mongoose.PassportLocalSchema);

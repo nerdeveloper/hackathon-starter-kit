@@ -8,10 +8,18 @@ import passport from 'passport';
 import mongo from 'connect-mongo';
 import path from "path";
 import flash from 'connect-flash';
-import compression from "compression";  
+import compression from "compression";
+import cors from 'cors';
+
+
+
+dotenv.config({ path: 'variable.env' }) 
 import indexRouter from "./routes/index";
 import authRouter from './routes/auth'
-import cors from 'cors';
+import './handlers/passport';
+
+// import environmental variables from our variables.env file
+
 
 const MongoStore  = mongo(session);
 // Create Express server
@@ -27,8 +35,7 @@ app.use(compression())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-// import environmental variables from our variables.env file
-dotenv.config({ path: 'variable.env' })
+
 
 // serves up static files from the public folder. Anything in public/ will just be served up as the file it is
 app.use(express.static(path.join(__dirname, '../public')));
