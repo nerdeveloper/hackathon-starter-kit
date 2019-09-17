@@ -28,5 +28,17 @@ passport.authenticate('github', {
 
  );
 
+ router.get('/twitter', passport.authenticate('twitter'));
+
+router.get('/twitter/callback',
+passport.authenticate('twitter', {
+    failureRedirect: '/login',
+    failureFlash: 'Incorrect Email Address or Password!',
+    successRedirect: '/',
+    successFlash: 'You are now logged in!',
+  })
+
+ );
+
 
 export default router;

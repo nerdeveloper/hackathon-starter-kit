@@ -41,6 +41,7 @@
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
+    "passport-twitter": "^1.0.4",
     "pug": "^2.0.4",
     "shelljs": "^0.8.3",
     "validator": "^11.1.0"
@@ -71,6 +72,7 @@
     "@types/passport-google-oauth": "^1.0.41",
     "@types/passport-local": "^1.0.33",
     "@types/passport-local-mongoose": "^4.0.12",
+    "@types/passport-twitter": "^1.0.34",
     "@types/shelljs": "^0.8.5",
     "@types/validator": "^10.11.1",
     "@typescript-eslint/eslint-plugin": "^1.12.0",

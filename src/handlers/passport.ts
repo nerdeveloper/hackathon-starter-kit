@@ -5,6 +5,7 @@ import { User } from "../models/User";
 import passportLocal from 'passport-local';
 import * as passportGoogle from "passport-google-oauth";
 import * as passportGithub from 'passport-github';
+import * as passportTwitter from 'passport-twitter';
 // Local Authentication strategy
 const LocalStrategy = passportLocal.Strategy;
 
@@ -63,6 +64,39 @@ passport.use(new githubStrategy({
           
     } else {
       //@ts-ignore
+      const user = new User({ githubId: profile.id, email: profile._json.email, token: accessToken });
+      user.save((err) => {
+        if (err) {
+          throw err;
+          
+        }
+        return done(null, user);
+      });
+    }
+
+
+}
+)
+}));
+
+
+// Twitter Authentication strategy
+const twitterStrategy = passportTwitter.Strategy 
+passport.use(new twitterStrategy({
+  consumerKey: '',
+  consumerSecret: '',
+  callbackURL: "/auth/twitter/callback"
+}, ( accessToken, refreshToken, profile, done) => {
+
+  User.findOne({ 'email' : profile._json.email }, (err, user) => {
+    if (err)
+      return done(err);
+
+    if (user) {
+          return done(null, user);
+          
+    } else {
+   
       const user = new User({ githubId: profile.id, email: profile._json.email, token: accessToken });
       user.save((err) => {
         if (err) {
