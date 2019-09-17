@@ -40,5 +40,17 @@ passport.authenticate('twitter', {
 
  );
 
+ router.get('/facebook', passport.authenticate('facebook'));
+
+ router.get('/facebook/callback',
+ passport.authenticate('facebook', {
+     failureRedirect: '/login',
+     failureFlash: 'Incorrect Email Address or Password!',
+     successRedirect: '/',
+     successFlash: 'You are now logged in!',
+   })
+ 
+  );
+
 
 export default router;

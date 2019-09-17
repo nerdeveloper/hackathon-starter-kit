@@ -6,6 +6,8 @@ import passportLocal from 'passport-local';
 import * as passportGoogle from "passport-google-oauth";
 import * as passportGithub from 'passport-github';
 import * as passportTwitter from 'passport-twitter';
+import * as passportFacebook from 'passport-facebook';
+import { access } from 'fs';
 // Local Authentication strategy
 const LocalStrategy = passportLocal.Strategy;
 
@@ -113,6 +115,39 @@ passport.use(new twitterStrategy({
 )
 }));
 
+// Facebook Authentication strategy
+const facebookStrategy = passportFacebook.Strategy
+passport.use(new facebookStrategy({
+  clientID: `${process.env.FACEBOOK_CLIENT_ID}`,
+  clientSecret: `${process.env.FACEBOOK_CLIENT_SECRET}`,
+  callbackURL: "/auth/facebook/callback",
+}, ( accessToken, refreshToken, profile, done) => {
+  console.log(accessToken);
+  console.log(profile);
+
+  User.findOne({ 'email' : profile._json.email}, (err, user) => {
+    if (err)
+      return done(err);
+
+    if (user) {
+          return done(null, user);
+          
+    } else {
+   
+      const user = new User({ twitterId: profile.id, email: profile._json.email, token: accessToken });
+      user.save((err) => {
+        if (err) {
+          throw err;
+          
+        }
+        return done(null, user);
+      });
+    }
+
+
+}
+)
+}));
 
 
 
