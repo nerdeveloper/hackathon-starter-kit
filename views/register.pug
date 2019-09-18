@@ -29,5 +29,45 @@ block content
               .g-recaptcha(name="google-recap", data-sitekey="6Lc5FLcUAAAAAAdxwth9zrNgPhnRb7ZQ5yYk01KS")
             .col-md-12
               input.btn.btn-success.btn-send(type="submit" value="Register")
-              
-              
+
+
+       h3.text-center OR
+       br
+       h4 Sign up with: 
+       hr.my-4
+       .container
+         .row
+           .col-sm.paddingButtons
+             a(href='/auth/twitter')
+               button.btn.btn-twitter.text-uppercase.btn
+                 i.fab.fa-twitter
+                   |  Twitter
+      
+           .col-sm.paddingButtons
+             a(href='/auth/github')
+               button.btn.btn-github.text-uppercase
+                 i.fab.fa-github
+                   |  Github
+         
+           .col-sm.paddingButtons
+             a(href='/auth/facebook')
+               button.btn.btn-facebook.text-uppercase
+                 i.fab.fa-facebook-f
+                   |  Facebook
+         hr.my-2
+         .row
+           .col-sm.paddingButtons
+              a(href='/auth/google')
+                button.btn.btn-google.text-uppercase
+                  i.fab.fa-google
+                    |  Google
+           .col-sm.paddingButtons
+             a(href='/auth/linkedin')
+               button.btn.btn-linkedin.text-uppercase
+                 i.fab.fa-linkedin-in
+                   |  LinkedIn
+           .col-sm.paddingButtons
+             a(href='/auth/slack')
+               button.btn.btn-slack.text-uppercase
+                 i.fab.fa-slack
+                   |  Slack

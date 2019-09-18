@@ -139,3 +139,10 @@ section {
     background-color: #4a154b;
 } 
 
+
+/* Small devices (landscape phones, 576px and down) */
+@media (max-width: 575.98px) {
+    .paddingButtons{
+        padding-bottom: 1rem;
+    }
+}
