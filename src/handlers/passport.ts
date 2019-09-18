@@ -7,7 +7,7 @@ import * as passportGoogle from "passport-google-oauth";
 import * as passportGithub from 'passport-github';
 import * as passportTwitter from 'passport-twitter';
 import * as passportFacebook from 'passport-facebook';
-import { access } from 'fs';
+import * as passportLinkedin from 'passport-linkedin-oauth2'
 // Local Authentication strategy
 const LocalStrategy = passportLocal.Strategy;
 
@@ -122,8 +122,6 @@ passport.use(new facebookStrategy({
   clientSecret: `${process.env.FACEBOOK_CLIENT_SECRET}`,
   callbackURL: "/auth/facebook/callback",
 }, ( accessToken, refreshToken, profile, done) => {
-  console.log(accessToken);
-  console.log(profile);
 
   User.findOne({ 'email' : profile._json.email}, (err, user) => {
     if (err)
@@ -135,6 +133,41 @@ passport.use(new facebookStrategy({
     } else {
    
       const user = new User({ twitterId: profile.id, email: profile._json.email, token: accessToken });
+      user.save((err) => {
+        if (err) {
+          throw err;
+          
+        }
+        return done(null, user);
+      });
+    }
+
+
+}
+)
+}));
+
+// LinkedIn Authentication strategy
+const linkedinStrategy = passportLinkedin.Strategy
+passport.use(new linkedinStrategy({
+  clientID: `${process.env.LINKEDIN_CLIENT_ID}`,
+  clientSecret: `${process.env.LINKEDIN_CLIENT_SECRET}`,
+  callbackURL: "/auth/linkedin/callback",
+  //@ts-ignore
+  scope: ['r_emailaddress', 'r_liteprofile'],
+  state: true
+}, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
+
+  User.findOne({ 'email' : profile.emails[0].value}, (err, user) => {
+    if (err)
+      return done(err);
+
+    if (user) {
+          return done(null, user);
+          
+    } else {
+   
+      const user = new User({ linkedinId: profile.id, email: profile.emails[0].value, token: accessToken });
       user.save((err) => {
         if (err) {
           throw err;

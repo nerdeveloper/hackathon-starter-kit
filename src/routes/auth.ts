@@ -53,4 +53,17 @@ passport.authenticate('twitter', {
   );
 
 
+  router.get('/linkedin', passport.authenticate('linkedin'));
+
+  router.get('/linkedin/callback',
+  passport.authenticate('linkedin', {
+      failureRedirect: '/login',
+      failureFlash: 'Incorrect Email Address or Password!',
+      successRedirect: '/',
+      successFlash: 'You are now logged in!',
+    })
+  
+   );
+
+
 export default router;

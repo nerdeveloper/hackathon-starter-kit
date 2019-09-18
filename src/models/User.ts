@@ -34,6 +34,7 @@ export type UserDocument = mongoose.Document & {
 
     },
     googleId: String,
+    linkedinId:String,
     githubId: String,
     twitterId: String,
     token: String,
