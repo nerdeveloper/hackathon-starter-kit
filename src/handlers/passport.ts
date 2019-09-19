@@ -191,7 +191,7 @@ passport.use(new dropboxStrategy({
   apiVersion: '2',
   clientID: `${process.env.DROPBOX_CLIENT_ID}`,
   clientSecret: `${process.env.DROPBOX_CLIENT_SECRET}`,
-  callbackURL: `https://095674b5.ngrok.io/auth/dropbox/callback`,
+  callbackURL: `${config.siteurl}/auth/dropbox/callback`,
 }, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
 
   User.findOne({ 'email' : profile.emails[0].value}, (err, user) => {
