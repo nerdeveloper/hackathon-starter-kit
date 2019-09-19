@@ -1,4 +1,5 @@
 import passport from 'passport';
+
 import config  from '../config'
 
 import { User } from "../models/User";
@@ -8,6 +9,8 @@ import * as passportGithub from 'passport-github';
 import * as passportTwitter from 'passport-twitter';
 import * as passportFacebook from 'passport-facebook';
 import * as passportLinkedin from 'passport-linkedin-oauth2'
+//@ts-ignore
+import * as passportDropbox from 'passport-dropbox-oauth2';
 // Local Authentication strategy
 const LocalStrategy = passportLocal.Strategy;
 
@@ -182,7 +185,39 @@ passport.use(new linkedinStrategy({
 )
 }));
 
+// Dropbox Authentication strategy
+const dropboxStrategy = passportDropbox.Strategy
 
+passport.use(new dropboxStrategy({
+  apiVersion: '2',
+  clientID: `${process.env.DROPBOX_CLIENT_ID}`,
+  clientSecret: `${process.env.DROPBOX_CLIENT_SECRET}`,
+  callbackURL: `${config.siteurl}/auth/dropbox/callback`,
+}, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
+
+  User.findOne({ 'email' : profile.emails[0].value}, (err, user) => {
+    if (err)
+      return done(err);
+
+    if (user) {
+          return done(null, user);
+          
+    } else {
+   
+      const user = new User({ dropboxId: profile.id, email: profile.emails[0].value, token: accessToken });
+      user.save((err) => {
+        if (err) {
+          throw err;
+          
+        }
+        return done(null, user);
+      });
+    }
+
+
+}
+)
+}));
 
 passport.serializeUser((user, done) => {
   done(null, user);

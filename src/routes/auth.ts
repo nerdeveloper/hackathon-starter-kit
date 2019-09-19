@@ -65,5 +65,17 @@ passport.authenticate('twitter', {
   
    );
 
+   router.get('/dropbox', passport.authenticate('dropbox-oauth2'));
+
+   router.get('/dropbox/callback',
+   passport.authenticate('dropbox-oauth2', {
+       failureRedirect: '/login',
+       failureFlash: 'Incorrect Email Address or Password!',
+       successRedirect: '/',
+       successFlash: 'You are now logged in!',
+     })
+   
+    );
+
 
 export default router;
