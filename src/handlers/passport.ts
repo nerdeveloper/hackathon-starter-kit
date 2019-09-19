@@ -1,5 +1,5 @@
 import passport from 'passport';
-
+import config  from '../config'
 
 import { User } from "../models/User";
 import passportLocal from 'passport-local';
