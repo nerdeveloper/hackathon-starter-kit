@@ -1,8 +1,9 @@
 import express from 'express';
 const router = express.Router();
 import passport from 'passport';
-//import '../handlers/passport'
 
+
+// Google Auth
 router.get('/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 router.get('/google/callback',

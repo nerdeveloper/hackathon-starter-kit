@@ -1,16 +1,15 @@
 nav.navbar.navbar-light.navbar-expand-lg.navbar-light.fixed-top.shadow-sm.bg-white
-  a.navbar-brand(href="#") App name
+  a.navbar-brand(href="/")
+    i.fas.fa-box  App name
   button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation")
     span.navbar-toggler-icon
   #navbarNavDropdown.collapse.navbar-collapse
     ul.navbar-nav.ml-auto  
       if user || !user
         li.nav-item.active
-          a.nav-link(href="#")
+          a.nav-link(href="/")
             | Home 
             span.sr-only (current)
-        li.nav-item
-          a.nav-link(href="#") Social Apps
         li.nav-item
           a.nav-link(href="/contact") Contact
       if !user

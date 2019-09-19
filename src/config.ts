@@ -2,15 +2,15 @@
 const environments:any = {}
 environments.development = {
     port: 3000,
-    database: "mongodb://obinna:odirionye@localhost/hack",
+    database:`${process.env.DEV_MONGODB}`,
     envName: "Development enviroment",
     siteurl: "http://hack.xyz:3000"
 };
 environments.production = {
     port: 5000,
-    database: "mongodb://phirmware:itachi1@ds237120.mlab.com:37120/iservice?retryWrites=true",
+    database: `${process.env.PROD_MONGODB}`,
     envName: "Production enviroment",
-    siteurl: " https://095674b5.ngrok.io"
+    siteurl: "https://44db6bb3.ngrok.io"
 };
 
 const currentEnvironment = process.env.NODE_ENV ? process.env.NODE_ENV : "";
