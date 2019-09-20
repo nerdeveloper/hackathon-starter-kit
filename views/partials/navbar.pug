@@ -4,7 +4,7 @@ nav.navbar.navbar-light.navbar-expand-lg.navbar-light.fixed-top.shadow-sm.bg-whi
   button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation")
     span.navbar-toggler-icon
   #navbarNavDropdown.collapse.navbar-collapse
-    ul.navbar-nav.ml-auto  
+    ul.navbar-nav.ml-auto.navbar-right 
       if user || !user
         li.nav-item.active
           a.nav-link(href="/")
@@ -18,5 +18,24 @@ nav.navbar.navbar-light.navbar-expand-lg.navbar-light.fixed-top.shadow-sm.bg-whi
         li.nav-item
           a.btn.btn-primary.text-white.shadow.nav-link(href="/register") Register an Account
       else
-        li.nav-item
-          a.nav-link(href="/logout") Logout
+
+        li.nav-item.dropdown.no-arrow
+          a#navbarDropdownMenuLink.nav-link.dropdown-toggle(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
+            span.mr-2.d-none.d-lg-inline= user.email || user.id
+            img.img-profile.rounded-circle(src= user.gravatar)
+
+          .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in(aria-labelledby="userDropdown")
+            a.dropdown-item(href="#")
+              i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
+              |                   Profile
+            a.dropdown-item(href="#")
+              i.fas.fa-cogs.fa-sm.fa-fw.mr-2.text-gray-400
+              |                   Settings
+            a.dropdown-item(href="#")
+              i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
+              |                   Activity Log
+            .dropdown-divider
+            a.dropdown-item(href="/logout")
+              i.fas.fa-sign-out-alt.fa-sm.fa-fw.mr-2.text-gray-400
+              |                   Logout
+  

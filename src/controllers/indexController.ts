@@ -6,7 +6,8 @@ import * as mail from '../handlers/mail';
 
 
 export const home = (req: Request, res: Response) => {
-  res.render('home', { title: 'Home' })
+  res.render('home', { title: 'Home' });
+  console.log(req.user);
 }
 
 export const contact = (req: Request, res: Response) => {
