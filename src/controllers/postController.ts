@@ -21,7 +21,6 @@ export const editPost = async (req: Request, res: Response) => {
     const post = await Post.findOne({ _id: req.params.id })
         .select("title description")
     res.render('create', { title: 'Edit Your Post', post });
-    console.log(post);
 }
 
 export const updatePost = async (req: Request, res: Response) => {
