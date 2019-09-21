@@ -13,9 +13,9 @@ block content
                 .col-sm-10
                   h6.m-0.font-weight-bold.text-primary= p.title
                 .col-sm
-                  a(href="#")
+                  a(href=`/create/${p._id}/edit`)
                     i.tooltipIcon.fas.fa-pen.fa-md.fa-fw.mr-2.text-gray-400(data-toggle="tooltip", data-placement="top", title="Edit Post")
-                  a(href="#")
+                  a(href=`/create/${p._id}/delete`)
                     i.tooltipIcon.fas.fa-trash.fa-md.fa-fw.mr-2.text-gray-400(data-toggle="tooltip", data-placement="top", title="Delete Post")
             .card-body= p.description
               

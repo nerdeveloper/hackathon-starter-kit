@@ -1,0 +1,23 @@
+mixin postForm(post = {})
+
+  .container
+    .row
+      .col-xl-8.offset-xl-2.py-5
+        h2.text-center= title
+        form#contact-form(method="POST" action=`/create/${post._id || ''}` role="form")
+          .messages
+          .controls
+            .row
+              .col-md-12
+                .form-group
+                  label(for="title") Title of your Post *
+                  input#title.form-control(type="text" name="title" value=post.title placeholder="Hello Haven" required="required")
+
+            .row
+              .col-md-12
+                .form-group
+                  label(for="description") Description of your Post *
+                  input#description.form-control(type="text" name="description" value=post.description  placeholder="It was a brown stylish fox that jumped over the fence of the next neighbor." required="required" )
+
+              .col-md-12
+                input.btn.btn-success.btn-send(type="submit" value="Save Post")

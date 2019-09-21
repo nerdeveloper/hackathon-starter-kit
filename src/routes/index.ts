@@ -91,7 +91,7 @@ router.post('/register',
 
  router.get('/logout', authController.logout) ;
 
- router.get('/create', ensureLoggedIn('/login'), postController.createPost)
+ router.get('/create', ensureLoggedIn('/login'), postController.addPost);
 
  router.post('/create',
   [
@@ -103,10 +103,16 @@ router.post('/register',
 
 ],
 (req: Request, res: Response) => {
-   wrapAsync(postController.addPost(req, res));
+   wrapAsync(postController.createPost(req, res));
 });
 
 router.get('/posts', ensureLoggedIn('/login'), wrapAsync(postController.posts)) ;
+
+router.get('/create/:id/edit', ensureLoggedIn('/login'), wrapAsync(postController.editPost));
+router.post(
+    '/create/:id',
+    wrapAsync(postController.updateStore),
+  );
 
 
 export default router;
