@@ -48,11 +48,6 @@ export type UserDocument = mongoose.Document & {
     toObject: { virtuals: true },
 },
 );
-userSchema.virtual('posts', {
-    ref: 'Post',
-    localField: '_id', 
-    foreignField: 'author'
-});
 
 userSchema.virtual('gravatar').get(function(){
     const hash = md5(this.email);

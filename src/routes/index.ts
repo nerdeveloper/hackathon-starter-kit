@@ -1,10 +1,19 @@
 import express from 'express';
 import {Request, Response, NextFunction} from 'express'
 import {check, sanitizeBody, body  } from 'express-validator';
+import 'connect-ensure-login' ;
 
 const router = express.Router();
 import * as authController from '../controllers/authController';
 import * as indexController from '../controllers/indexController';
+import * as postController from '../controllers/postController';
+import { ensureLoggedIn } from 'connect-ensure-login';
+
+function wrapAsync(fn:any) {
+    return function (req: Request, res: Response, next: NextFunction) {
+        fn(req, res, next).catch(next);
+    };
+}
 
 router.get('/',  indexController.home)
 router.get('/contact',  indexController.contact) 
@@ -77,11 +86,27 @@ router.post('/register',
         check('g-recaptcha-response', "Please validate your Google reCAPTCHA").not().isEmpty()
 
     ],(req: Request, res: Response, next:NextFunction) => {
-        authController.registerForm(req, res, next)
+       wrapAsync(authController.registerForm(req, res, next))
     });
 
-    router.get('/logout', authController.logout) ;
+ router.get('/logout', authController.logout) ;
 
+ router.get('/create', ensureLoggedIn('/login'), postController.createPost)
+
+ router.post('/create',
+  [
+    /**Check the form and validated it before submitting  */
+    sanitizeBody('title'),
+    check('title', 'Enter the title of your Post').not().isEmpty(),
+    sanitizeBody('description'),
+    check('description', 'Enter the description of your Post').not().isEmpty(),
+
+],
+(req: Request, res: Response) => {
+   wrapAsync(postController.addPost(req, res));
+});
+
+router.get('/posts', ensureLoggedIn('/login'), wrapAsync(postController.posts)) ;
 
 
 export default router;

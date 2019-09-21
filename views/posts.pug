@@ -1,0 +1,22 @@
+extends layout
+block content
+  if posts
+
+
+    .row
+      each p in posts
+        .col-lg-6
+          // Basic Card Example
+          .card.shadow.mb-4
+            .card-header.py-3
+              .row
+                .col-sm-10
+                  h6.m-0.font-weight-bold.text-primary= p.title
+                .col-sm
+                  a(href="#")
+                    i.tooltipIcon.fas.fa-pen.fa-md.fa-fw.mr-2.text-gray-400(data-toggle="tooltip", data-placement="top", title="Edit Post")
+                  a(href="#")
+                    i.tooltipIcon.fas.fa-trash.fa-md.fa-fw.mr-2.text-gray-400(data-toggle="tooltip", data-placement="top", title="Delete Post")
+            .card-body= p.description
+              
+        

@@ -25,12 +25,12 @@ nav.navbar.navbar-light.navbar-expand-lg.navbar-light.fixed-top.shadow-sm.bg-whi
             img.img-profile.rounded-circle(src= user.gravatar)
 
           .dropdown-menu.dropdown-menu-right.shadow.animated--grow-in(aria-labelledby="userDropdown")
-            a.dropdown-item(href="#")
-              i.fas.fa-user.fa-sm.fa-fw.mr-2.text-gray-400
-              |                   Profile
-            a.dropdown-item(href="#")
-              i.fas.fa-cogs.fa-sm.fa-fw.mr-2.text-gray-400
-              |                   Settings
+            a.dropdown-item(href="/create")
+              i.fas.fa-plus-square.fa-sm.fa-fw.mr-2.text-gray-400
+              |                   Create Post
+            a.dropdown-item(href="/posts")
+              i.fas.fa-book.fa-sm.fa-fw.mr-2.text-gray-400
+              |                   Your Posts
             a.dropdown-item(href="#")
               i.fas.fa-list.fa-sm.fa-fw.mr-2.text-gray-400
               |                   Activity Log
