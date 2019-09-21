@@ -111,8 +111,11 @@ router.get('/posts', ensureLoggedIn('/login'), wrapAsync(postController.posts)) 
 router.get('/create/:id/edit', ensureLoggedIn('/login'), wrapAsync(postController.editPost));
 router.post(
     '/create/:id',
-    wrapAsync(postController.updateStore),
+    wrapAsync(postController.updatePost),
   );
-
+  router.get(
+    '/create/:id/delete',
+    wrapAsync(postController.deletePost),
+  );
 
 export default router;

@@ -138,10 +138,6 @@ section {
     color: white;
     background-color: #3d9ae8 
 } 
-/* .card{
-    padding-bottom: 2rem;
-    padding-left: 3rem;
-} */
 
 /* Small devices (landscape phones, 576px and down) */
 @media (max-width: 575.98px) {

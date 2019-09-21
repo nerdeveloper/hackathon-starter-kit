@@ -23,19 +23,30 @@ export const editPost = async (req: Request, res: Response) => {
     res.render('create', { title: 'Edit Your Post', post });
     console.log(post);
 }
-export const updateStore = async (req:Request, res:Response) => {
-   
+
+export const updatePost = async (req: Request, res: Response) => {
+
     // Find and update the store
-    const post = await Post.findOneAndUpdate({_id: req.params.id}, req.body, {
-      new: true, // return the new store instead of the old one
-      runValidators: true,
+    await Post.findOneAndUpdate({ _id: req.params.id }, req.body, {
+        new: true, // return the new store instead of the old one
+        runValidators: true,
     }).exec();
-    req.flash("success","Your Post has been successfully updated!");
+    req.flash("success", "Your Post has been successfully updated!");
     res.redirect('/posts');
-  
-;
     // Redirect them to the store and tell them it worked
-  };
+};
+
+export const deletePost = async (req: Request, res: Response) => {
+
+    // Find and update the store
+    const post = await Post.findOneAndDelete({ _id: req.params.id }).exec();
+    req.flash("success", "Your Post has been Deleted!");
+    res.redirect('/posts');
+    // Redirect them to the store and tell them it worked
+};
+
+
+
 export const createPost = async (req: Request, res: Response, ) => {
 
     try {
