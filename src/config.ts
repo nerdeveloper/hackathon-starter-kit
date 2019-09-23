@@ -10,7 +10,7 @@ environments.production = {
     port: 5000,
     database: `${process.env.PROD_MONGODB}`,
     envName: "Production enviroment",
-    siteurl: "https://44db6bb3.ngrok.io"
+    siteurl: "https://8210701d.ngrok.io"
 };
 
 const currentEnvironment = process.env.NODE_ENV ? process.env.NODE_ENV : "";

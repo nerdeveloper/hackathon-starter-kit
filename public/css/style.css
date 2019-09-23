@@ -138,6 +138,10 @@ section {
     color: white;
     background-color: #3d9ae8 
 } 
+.btn-discord {
+    color: white;
+    background-color: #7289da;
+} 
 
 /* Small devices (landscape phones, 576px and down) */
 @media (max-width: 575.98px) {

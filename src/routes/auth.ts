@@ -72,5 +72,16 @@ router.get('/dropbox/callback',
 
 );
 
+router.get('/discord', passport.authenticate('discord'));
+
+router.get('/discord/callback',
+  passport.authenticate('discord', {
+    failureRedirect: '/login',
+    successReturnToOrRedirect: '/',
+    successFlash: 'You are now logged in!',
+  })
+
+);
+
 
 export default router;

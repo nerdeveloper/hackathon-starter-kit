@@ -9,12 +9,11 @@ import * as passportGithub from 'passport-github';
 import * as passportTwitter from 'passport-twitter';
 import * as passportFacebook from 'passport-facebook';
 import * as passportLinkedin from 'passport-linkedin-oauth2'
+import * as passportDiscord from 'passport-discord';
 //@ts-ignore
 import * as passportDropbox from 'passport-dropbox-oauth2';
 // Local Authentication strategy
 const LocalStrategy = passportLocal.Strategy;
-
-
 
 passport.use(new LocalStrategy({
   usernameField: 'email',
@@ -205,6 +204,42 @@ passport.use(new dropboxStrategy({
     } else {
    
       const user = new User({ dropboxId: profile.id, email: profile.emails[0].value, token: accessToken });
+      user.save((err) => {
+        if (err) {
+          throw err;
+          
+        }
+        return done(null, user);
+      });
+    }
+
+
+}
+)
+}));
+
+// Dropbox Authentication strategy
+const discordStrategy = passportDiscord.Strategy
+
+passport.use(new discordStrategy({
+  clientID: `624057230731247629`,
+  clientSecret: `V6ZtEWfBxOnA-2YHz5FuYoiqre7noay-`,
+  callbackURL: `${config.siteurl}/auth/discord/callback`,
+  scope:'identify email'
+}, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
+  //console.log(accessToken);
+  console.log(profile);
+
+  User.findOne({ 'email' : profile.email}, (err, user) => {
+    if (err)
+      return done(err);
+
+    if (user) {
+          return done(null, user);
+          
+    } else {
+   
+      const user = new User({ discordId: profile.id, email: profile.email, token: accessToken });
       user.save((err) => {
         if (err) {
           throw err;
