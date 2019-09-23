@@ -13,7 +13,6 @@ export const posts = async (req: Request, res: Response) => {
     const posts = await Post.find({ author: req.user.id })
         .select("title description")
     res.render('posts', { title: 'Your Posts', posts });
-    console.log(posts);
 }
 export const editPost = async (req: Request, res: Response) => {
     //Find Post by author ID

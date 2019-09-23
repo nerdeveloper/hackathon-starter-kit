@@ -30,7 +30,6 @@ export const send = (req:any, res:any) => {
           else{
             req.flash("success", "Email has been sent successfully!");
             res.redirect('/contact');
-            console.log(data);
           }
       });
 
