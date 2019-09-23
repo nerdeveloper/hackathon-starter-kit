@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 import app from './app';
 import config from './config';
 
-import errorHandler from "errorhandler";
 // Make sure we are running node 7.6+
 const [major, minor] = process.versions.node.split('.').map(parseFloat);
 if (major < 7 || (major === 7 && minor <= 5)) {
@@ -19,10 +18,6 @@ mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', err => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
-
-
-
-app.use(errorHandler());
 
 const server = app.listen(config.port, () => {
   console.log(`Express running → PORT ${config.port}`);

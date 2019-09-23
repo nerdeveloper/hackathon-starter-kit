@@ -11,6 +11,7 @@ import flash from 'connect-flash';
 import compression from "compression";
 import cors from 'cors';
 import helmet from 'helmet';
+import errorHandler from "errorhandler";
 
 
 
@@ -31,7 +32,6 @@ app.use(helmet());
 // view engine setup
 app.set('views', path.join(__dirname, '../views')); // this is the folder where we keep our pug files
 app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
-app.locals.pretty = true;
 app.use(compression())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -45,14 +45,16 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(session({
+const sessions = {
     resave: false,
+    cookie: {},
     saveUninitialized: false,
     secret: process.env.SECRET,
     store: new MongoStore({ mongooseConnection: mongoose.connection,
         autoReconnect: true
     })
-}));
+};
+app.use(session(sessions));
 
 // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
@@ -75,5 +77,16 @@ app.use((req, res, next) => {
 //  Express Routing URLS
 app.use('/', indexRouter,);
 app.use('/auth', authRouter )
+
+if (app.get('env') === 'development') {
+    app.use(errorHandler());
+    app.locals.pretty = true;
+  }
+
+if (app.get('env') === 'production') {
+    //@ts-ignore
+    sessions.cookie.secure = true; // Serve secure cookies, requires HTTPS
+   
+  }
 
 export default app;
