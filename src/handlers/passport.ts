@@ -229,8 +229,7 @@ passport.use(new discordStrategy({
   callbackURL: `${config.siteurl}/auth/discord/callback`,
   scope:'identify email'
 }, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
-  //console.log(accessToken);
-  console.log(profile);
+ 
 
   User.findOne({ 'email' : profile.email}, (err, user) => {
     if (err)
@@ -256,7 +255,7 @@ passport.use(new discordStrategy({
 )
 }));
 
-// Discord Authentication strategy
+// Slack Authentication strategy
 const slackStrategy = passportSlack.Strategy
 
 passport.use(new slackStrategy({
@@ -265,9 +264,6 @@ passport.use(new slackStrategy({
   callbackURL: `${config.siteurl}/auth/slack/callback`,
   scope:'identity.basic identity.email'
 }, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
-  console.log(accessToken);
-  console.log(profile);
-
   User.findOne({ 'email' : profile.user.email}, (err, user) => {
     if (err)
       return done(err);
