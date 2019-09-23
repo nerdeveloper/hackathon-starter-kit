@@ -24,6 +24,7 @@ export const contactForm = (req: Request, res: Response, ) => {
         body: req.body,
         flashes: req.flash()
         });
+        console.log(req.body)
     } else {
         mail.send(req, res)
  }

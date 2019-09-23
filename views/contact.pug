@@ -10,23 +10,23 @@ block content
              .col-md-6
                .form-group
                  label(for="form_name") Firstname *
-                 input#form_name.form-control(type="text" name="name" placeholder="Please enter your firstname *" data-error="Firstname is required.")
+                 input#form_name.form-control(type="text" name="name" value=body.name placeholder="Please enter your firstname *" data-error="Firstname is required.")
                 
              .col-md-6
                .form-group
                  label(for="form_lastname") Lastname *
-                 input#form_lastname.form-control(type="text" name="surname" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.")
+                 input#form_lastname.form-control(type="text" name="surname" value=body.surname placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.")
                  .help-block.with-errors
            .row
              .col-md-6
                .form-group
                  label(for="form_email") Email *
-                 input#form_email.form-control(type="email" name="email" placeholder="Please enter your email *" required="required" data-error="Valid email is required.")
+                 input#form_email.form-control(type="email" name="email" value=body.email placeholder="Please enter your email *" required="required" data-error="Valid email is required.")
                  .help-block.with-errors
              .col-md-6
                .form-group
                  label(for="form_need") Please Framework of Choice *
-                 select#form_need.form-control(name="need" required="required" data-error="Please specify your need.")
+                 select#form_need.form-control(name="need" required="required" value=body.need data-error="Please specify your need.")
                    option(value="") Select a Framework of Choice
                    option(value="Angular") Angular
                    option(value="Vue") Vue
@@ -37,7 +37,7 @@ block content
              .col-md-12
                .form-group
                  label(for="form_message") Message *
-                 textarea#form_message.form-control(name="message" placeholder="Message for me *" rows="4" required="required" data-error="Please, leave us a message.")
+                 textarea#form_message.form-control(name="message" placeholder="Message for me *" rows="4" value=body.message required="required" data-error="Please, leave us a message.")
                  .help-block.with-errors
              br
              .col-md-12
