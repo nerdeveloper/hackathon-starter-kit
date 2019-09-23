@@ -143,6 +143,11 @@ section {
     background-color: #7289da;
 } 
 
+.btn-slack {
+    color: white;
+    background-color: #4a154b;
+} 
+
 /* Small devices (landscape phones, 576px and down) */
 @media (max-width: 575.98px) {
     .paddingButtons{

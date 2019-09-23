@@ -11,6 +11,8 @@ import * as passportFacebook from 'passport-facebook';
 import * as passportLinkedin from 'passport-linkedin-oauth2'
 import * as passportDiscord from 'passport-discord';
 //@ts-ignore
+import * as passportSlack from 'passport-slack';
+//@ts-ignore
 import * as passportDropbox from 'passport-dropbox-oauth2';
 // Local Authentication strategy
 const LocalStrategy = passportLocal.Strategy;
@@ -218,7 +220,7 @@ passport.use(new dropboxStrategy({
 )
 }));
 
-// Dropbox Authentication strategy
+// Discord Authentication strategy
 const discordStrategy = passportDiscord.Strategy
 
 passport.use(new discordStrategy({
@@ -240,6 +242,42 @@ passport.use(new discordStrategy({
     } else {
    
       const user = new User({ discordId: profile.id, email: profile.email, token: accessToken });
+      user.save((err) => {
+        if (err) {
+          throw err;
+          
+        }
+        return done(null, user);
+      });
+    }
+
+
+}
+)
+}));
+
+// Discord Authentication strategy
+const slackStrategy = passportSlack.Strategy
+
+passport.use(new slackStrategy({
+  clientID: `${process.env.SLACK_CLIENT_ID}`,
+  clientSecret: `${process.env.SLACK_CLIENT_SECRET}`,
+  callbackURL: `${config.siteurl}/auth/slack/callback`,
+  scope:'identity.basic identity.email'
+}, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
+  console.log(accessToken);
+  console.log(profile);
+
+  User.findOne({ 'email' : profile.user.email}, (err, user) => {
+    if (err)
+      return done(err);
+
+    if (user) {
+          return done(null, user);
+          
+    } else {
+   
+      const user = new User({ slackId: profile.user.id, email: profile.user.email, token: accessToken });
       user.save((err) => {
         if (err) {
           throw err;

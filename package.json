@@ -49,6 +49,7 @@
     "passport-linkedin-oauth2": "^2.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
+    "passport-slack": "0.0.7",
     "passport-twitter": "^1.0.4",
     "pug": "^2.0.4",
     "shelljs": "^0.8.3",

@@ -83,5 +83,16 @@ router.get('/discord/callback',
 
 );
 
+router.get('/slack', passport.authenticate('slack'));
+
+router.get('/slack/callback',
+  passport.authenticate('slack', {
+    failureRedirect: '/login',
+    successReturnToOrRedirect: '/',
+    successFlash: 'You are now logged in!',
+  })
+
+);
+
 
 export default router;

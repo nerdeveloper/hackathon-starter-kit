@@ -19,6 +19,12 @@ export type UserDocument = mongoose.Document & {
     posts:any,
     token:any,
     googleId:String,
+    linkedinId:String,
+    dropboxId: String,
+    githubId: String,
+    twitterId: String,
+    discordId: String,
+    slackId: String,
 }
 
 
@@ -39,6 +45,7 @@ export type UserDocument = mongoose.Document & {
     githubId: String,
     twitterId: String,
     discordId: String,
+    slackId: String,
     token: String,
 
     resetPasswordToken: String,
