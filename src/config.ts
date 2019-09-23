@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-const environments:any = {}
+const environments:any = {};
 environments.development = {
     port: 3000,
     database:`${process.env.DEV_MONGODB}`,
