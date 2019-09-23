@@ -14,7 +14,7 @@ export const login = (req: Request, res: Response) => {
 export const logout = (req: Request, res: Response) => {
     req.logout();
     req.flash("success", "You are now logged out! 👋");
-    res.redirect("/");
+    res.redirect("/login");
 };
 
 export const loginForm = (req: Request, res: Response) => {

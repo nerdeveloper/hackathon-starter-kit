@@ -104,8 +104,8 @@ router.post(
             .not()
             .isEmpty(),
     ],
-    (req: Request, res: Response, next: NextFunction) => {
-        wrapAsync(authController.registerForm(req, res, next));
+    (req: Request, res: Response) => {
+        wrapAsync(authController.registerForm(req, res));
     },
 );
 
