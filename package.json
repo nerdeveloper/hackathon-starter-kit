@@ -11,9 +11,11 @@
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
     "serve-debug": "nodemon --inspect dist/server.js",
-    "serve": "concurrently \"npm run serve:prod\" \"npm run watch-ts\" \"npm run bundle\" --names \"💻,📦\" --prefix name",
-    "bundle": "webpack -w --display-max-modules 0",
-    "build:dev": "concurrently \"npm run serve:dev\" \"npm run watch-ts\"  \"npm run bundle\" --names \"💻,📦\" --prefix name"
+    "serve:watch": "concurrently \"npm run serve:prod\" \"npm run watch-ts\" \"npm run bundle\" --names \"💻,📦\" --prefix name",
+    "prod": "concurrently \"npm run serve:prod\" \"npm run build-ts\" \"npm run bundle\" --names \"💻,📦\" --prefix name",
+    "bundle:watch": "webpack -w --display-max-modules 0",
+    "bundle": "webpack --display-max-modules 0",
+    "build:dev": "concurrently \"npm run serve:dev\" \"npm run watch-ts\"  \"npm run bundle:watch\" --names \"💻,📦\" --prefix name"
   },
   "keywords": [],
   "author": "Obinna Odirionye",
