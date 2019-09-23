@@ -222,8 +222,8 @@ passport.use(new dropboxStrategy({
 const discordStrategy = passportDiscord.Strategy
 
 passport.use(new discordStrategy({
-  clientID: `624057230731247629`,
-  clientSecret: `V6ZtEWfBxOnA-2YHz5FuYoiqre7noay-`,
+  clientID: `${process.env.DISCORD_CLIENT_ID}`,
+  clientSecret: `${process.env.DISCORD_CLIENT_SECRET}`,
   callbackURL: `${config.siteurl}/auth/discord/callback`,
   scope:'identify email'
 }, ( accessToken:any, refreshToken:any, profile:any, done:any) => {
