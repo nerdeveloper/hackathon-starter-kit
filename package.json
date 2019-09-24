@@ -17,7 +17,7 @@
     "watch-ts:prod": "tsc -w -p tsconfig-prod.json ",
     "serve-debug": "nodemon --inspect dist/server.js",
     "serve:watch": "concurrently \"npm run serve:prod\" \"npm run watch-ts\" \"npm run bundle\" --names \"💻,📦\" --prefix name",
-    "prod": "npm run build-ts:prod && npm run bundle && ts-node copy-files.ts && npm run serve:prod",
+    "prod": "npm run build-ts:prod && npm run bundle && ts-node copy-files.ts",
     "prod:serve": "npm run build-ts:prod && ts-node copy-files.ts && npm run watch:serve",
     "bundle:watch": "webpack -w --display-max-modules 0",
     "bundle": "webpack --display-max-modules 0",
