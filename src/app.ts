@@ -40,6 +40,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 const sessions = {
+    name: process.env.SESSION_NAME,
     resave: false,
     cookie: {},
     saveUninitialized: false,
