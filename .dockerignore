@@ -1,0 +1,7 @@
+.env
+.eslintignore
+.eslintrc
+.prettierignore
+.prettierrc
+dist/**/*
+app/**/*

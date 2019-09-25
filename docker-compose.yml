@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  app:
+    container_name: hackathon-starter-lit
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    depends_on: 
+      - mongodb
+    networks: 
+      - hackathon
+
+  mongodb:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - "27017:27017"
+    networks: 
+      - hackathon
+    environment: 
+      - MONGODB_USERNAME=app
+      - MONGODB_PASSWORD=password
+      - MONGODB_DATABASE=hackathon
+
+
+networks:
+  hackathon:
