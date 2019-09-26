@@ -1,0 +1,112 @@
+{
+    "dir": "ltr",
+    "lang": "English",
+    "name": "Hackathon Starter Kit",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "https://hackathon-slhbx5lcqq-uc.a.run.app/",
+    "short_name": "Hackathon Starter Kit",
+    "theme_color": "transparent",
+    "description": "A Production Grade Node-Typescript/Express Boilerplate with Authentication(Local, Github, Facebook, Twitter, Google, LinkedIn, Dropbox, Slack, Instagram), Authorization, and CRUD functionality + PWA Support!",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "/images/e640f1b5-1017-7eaa-4622-54af4bbfc504.webPlatform.png",
+            "sizes": "44x44",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/fbb5320a-4753-57bd-563e-38cca867ac1e.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8120a58e-1e89-c7d8-903d-755023dc4942.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ea2fe774-810c-e3f7-a0d7-4ccc5004d6e5.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c94ddc40-e410-8ed4-e075-7e68f637de3e.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/5c0c5be6-6f71-27c5-838f-49c9f2633e61.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/293545dc-4272-731b-ac9e-510fad986d5b.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8173b7b5-b9cb-4606-c219-72b7de6a6ef7.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8e5f27da-e077-ad52-2cde-9c731c605404.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/f9cdff96-c247-aa63-a596-666a9842de59.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c9c5dc95-f75f-446e-d628-02b408194848.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8d048402-2f88-2674-8191-54cc39adc0c6.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/0dc6292c-4b8e-b76e-4b7c-787b1214afbb.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/d62087b4-4c06-641d-bed8-c99fc49d49c6.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/3c929c60-b441-ec0c-2f4f-b07bdb110b46.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/bf3bf0be-b140-b394-0e94-3f2f47c3e5a4.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/872b8f68-066c-3b21-6967-dc17a15ef0be.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/bc28cac0-4c44-357a-c512-ccb2f10767fb.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/3a1013ab-7ad3-be3d-c788-0d1181828d08.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}

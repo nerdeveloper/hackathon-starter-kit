@@ -4,3 +4,4 @@ variable.env
 public/dist/**/*
 app/**/*
 .env
+.DS_Store
