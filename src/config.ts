@@ -4,7 +4,7 @@ environments.development = {
     port: 3000,
     database:`${process.env.DEV_MONGODB}`,
     envName: "Development enviroment",
-    siteurl: "http://localhost:3000"
+    siteurl: "http://hack.yxz:3000"
 };
 environments.production = {
     port: 8080,

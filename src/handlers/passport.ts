@@ -95,7 +95,7 @@ passport.use(
         {
             consumerKey: `${process.env.TWITTER_CONSUMER_KEY}`,
             consumerSecret: `${process.env.TWITTER_CONSUMER_SECRET}`,
-            callbackURL: "/auth/twitter/callback",
+            callbackURL: `${config.siteurl}/auth/twitter/callback`,
             includeEmail: true,
         },
         (accessToken, refreshToken, profile, done) => {
@@ -125,7 +125,7 @@ passport.use(
         {
             clientID: `${process.env.FACEBOOK_CLIENT_ID}`,
             clientSecret: `${process.env.FACEBOOK_CLIENT_SECRET}`,
-            callbackURL: "/auth/facebook/callback",
+            callbackURL: `${config.siteurl}/auth/facebook/callback`,
         },
         (accessToken, refreshToken, profile, done) => {
             User.findOne({email: profile._json.email}, (err, user) => {
@@ -154,7 +154,7 @@ passport.use(
         {
             clientID: `${process.env.LINKEDIN_CLIENT_ID}`,
             clientSecret: `${process.env.LINKEDIN_CLIENT_SECRET}`,
-            callbackURL: "/auth/linkedin/callback",
+            callbackURL: `${config.siteurl}/auth/linkedin/callback`,
             //@ts-ignore
             scope: ["r_emailaddress", "r_liteprofile"],
             state: true,
