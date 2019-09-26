@@ -4,4 +4,3 @@
 .prettierignore
 .prettierrc
 dist/**/*
-app/**/*

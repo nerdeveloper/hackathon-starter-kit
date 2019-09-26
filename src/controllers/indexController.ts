@@ -3,7 +3,7 @@ import {validationResult} from "express-validator";
 import * as mail from "../handlers/mail";
 
 export const home = (req: Request, res: Response) => {
-    res.render("home", {title: "Home"});
+    res.render("home", {title: "Home | Hackathon Starter Kit"});
 };
 
 export const contact = (req: Request, res: Response) => {

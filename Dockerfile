@@ -32,6 +32,8 @@ COPY package* ./
 
 RUN npm install --production
 
+RUN npm i -g nodemon
+
 EXPOSE 3000
 
 CMD ["nodemon", "dist/server.js", "--public"]

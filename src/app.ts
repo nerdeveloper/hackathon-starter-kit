@@ -12,7 +12,7 @@ import cors from "cors";
 import helmet from "helmet";
 import errorHandler from "errorhandler";
 
-dotenv.config({path: ".env"});
+dotenv.config({path: "variable.env"});
 import indexRouter from "./routes/index";
 import authRouter from "./routes/auth";
 import "./handlers/passport";
