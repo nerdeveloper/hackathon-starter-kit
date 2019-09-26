@@ -42,11 +42,11 @@ app.use(express.urlencoded({extended: true}));
 const sessions = {
     name: process.env.SESSION_NAME,
     resave: false,
-    cookie: {},
     saveUninitialized: false,
     secret: process.env.SECRET,
-    store: new MongoStore({mongooseConnection: mongoose.connection, autoReconnect: true}),
+    store: new MongoStore({mongooseConnection: mongoose.connection}),
 };
+
 app.use(session(sessions));
 
 // Passport JS is what we use to handle our logins
@@ -67,15 +67,13 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
 //  Express Routing URLS
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
+app.use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
+    return res.redirect("/contact");
+});
 
 if (app.get("env") === "development") {
     app.use(errorHandler());
     app.locals.pretty = true;
-}
-
-if (app.get("env") === "production") {
-    //@ts-ignore
-    sessions.cookie.secure = true; // Serve secure cookies, requires HTTPS
 }
 
 export default app;

@@ -9,6 +9,9 @@ export const home = (req: Request, res: Response) => {
 export const contact = (req: Request, res: Response) => {
     res.render("contact", {title: "Contact | Hackathon Starter Kit"});
 };
+export const notFound = (req: Request, res: Response) => {
+    res.render("404", {title: "Not Found | Hackathon Starter Kit"});
+};
 export const contactForm = (req: Request, res: Response) => {
     try {
         const errors = validationResult(req);

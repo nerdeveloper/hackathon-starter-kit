@@ -9,7 +9,7 @@ router.get(
     "/google/callback",
     passport.authenticate("google", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -20,7 +20,7 @@ router.get(
     "/github/callback",
     passport.authenticate("github", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -31,7 +31,7 @@ router.get(
     "/twitter/callback",
     passport.authenticate("twitter", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -42,7 +42,7 @@ router.get(
     "/facebook/callback",
     passport.authenticate("facebook", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -53,7 +53,7 @@ router.get(
     "/linkedin/callback",
     passport.authenticate("linkedin", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -64,7 +64,7 @@ router.get(
     "/dropbox/callback",
     passport.authenticate("dropbox-oauth2", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -75,7 +75,7 @@ router.get(
     "/discord/callback",
     passport.authenticate("discord", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );
@@ -86,7 +86,7 @@ router.get(
     "/slack/callback",
     passport.authenticate("slack", {
         failureRedirect: "/login",
-        successReturnToOrRedirect: "/",
+        successReturnToOrRedirect: "/posts",
         successFlash: "You are now logged in!",
     }),
 );

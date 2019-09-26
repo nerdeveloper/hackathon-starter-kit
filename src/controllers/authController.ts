@@ -37,6 +37,7 @@ export const loginForm = (req: Request, res: Response) => {
             passport.authenticate("local", {
                 failureRedirect: "/login",
                 successReturnToOrRedirect: "/",
+                failureFlash: "Invalid Email or Password",
                 successFlash: "You are now logged in!",
             })(req, res);
         }
@@ -46,15 +47,6 @@ export const loginForm = (req: Request, res: Response) => {
     }
 };
 
-export const isLoggedIn = (req: Request, res: Response, next: NextFunction) => {
-    // check if the user is authenticated
-    if (req.isAuthenticated()) {
-        return next(); // carry on to the login
-    } else {
-        req.flash("error", "Oops, you must be logged in to do that!");
-        res.redirect("/login");
-    }
-};
 export const register = (req: Request, res: Response) => {
     res.render("register", {title: "Register | Hackathon Starter Kit"});
 };

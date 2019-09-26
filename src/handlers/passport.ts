@@ -35,7 +35,7 @@ passport.use(
         {
             clientID: `${process.env.GOOGLE_CLIENT_ID}`,
             clientSecret: `${process.env.GOOGLE_CLIENT_SECRET}`,
-            callbackURL: "/auth/google/callback",
+            callbackURL: `${config.site}/auth/google/callback`,
         },
         (accessToken, refreshToken, profile, done) => {
             User.findOne({email: profile._json.email}, (err, user) => {
@@ -64,7 +64,7 @@ passport.use(
         {
             clientID: `${process.env.GITHUB_CLIENT_ID}`,
             clientSecret: `${process.env.GITHUB_CLIENT_SECRET}`,
-            callbackURL: "/auth/github/callback",
+            callbackURL: `${config.site}/auth/github/callback`,
         },
         (accessToken, refreshToken, profile, done) => {
             //@ts-ignore
@@ -95,7 +95,7 @@ passport.use(
         {
             consumerKey: `${process.env.TWITTER_CONSUMER_KEY}`,
             consumerSecret: `${process.env.TWITTER_CONSUMER_SECRET}`,
-            callbackURL: `${config.siteurl}/auth/twitter/callback`,
+            callbackURL: `${config.site}/auth/twitter/callback`,
             includeEmail: true,
         },
         (accessToken, refreshToken, profile, done) => {
@@ -154,7 +154,7 @@ passport.use(
         {
             clientID: `${process.env.LINKEDIN_CLIENT_ID}`,
             clientSecret: `${process.env.LINKEDIN_CLIENT_SECRET}`,
-            callbackURL: `${config.siteurl}/auth/linkedin/callback`,
+            callbackURL: `${config.site}/auth/linkedin/callback`,
             //@ts-ignore
             scope: ["r_emailaddress", "r_liteprofile"],
             state: true,
@@ -188,7 +188,7 @@ passport.use(
             apiVersion: "2",
             clientID: `${process.env.DROPBOX_CLIENT_ID}`,
             clientSecret: `${process.env.DROPBOX_CLIENT_SECRET}`,
-            callbackURL: `${config.siteurl}/auth/dropbox/callback`,
+            callbackURL: `${config.site}/auth/dropbox/callback`,
         },
         (accessToken: any, refreshToken: any, profile: any, done: any) => {
             User.findOne({email: profile.emails[0].value}, (err, user) => {
@@ -218,7 +218,7 @@ passport.use(
         {
             clientID: `${process.env.DISCORD_CLIENT_ID}`,
             clientSecret: `${process.env.DISCORD_CLIENT_SECRET}`,
-            callbackURL: `${config.siteurl}/auth/discord/callback`,
+            callbackURL: `${config.site}/auth/discord/callback`,
             scope: "identify email",
         },
         (accessToken: any, refreshToken: any, profile: any, done: any) => {
@@ -249,7 +249,7 @@ passport.use(
         {
             clientID: `${process.env.SLACK_CLIENT_ID}`,
             clientSecret: `${process.env.SLACK_CLIENT_SECRET}`,
-            callbackURL: `${config.siteurl}/auth/slack/callback`,
+            callbackURL: `${config.site}/auth/slack/callback`,
             scope: "identity.basic identity.email",
         },
         (accessToken: any, refreshToken: any, profile: any, done: any) => {
