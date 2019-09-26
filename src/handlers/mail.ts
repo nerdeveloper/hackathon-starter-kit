@@ -5,8 +5,8 @@ const transport = nodemailer.createTransport(
     sgTransport({
         service: "SendGrid",
         auth: {
-            user: "Enter your username",
-            pass: "Enter your password",
+            api_user: `${process.env.SENDGRID_USERNAME}`, //Enter your Sendgrid username
+            api_key: `${process.env.SENDGRID_PASSWORD}`, // Enter your Sendgrid password
         },
     }),
 );
@@ -14,8 +14,8 @@ const transport = nodemailer.createTransport(
 export const send = (req: any, res: any) => {
     const mailOptions = {
         to: process.env.EMAIL,
-        from: `${req.body.name} <${req.body.email}>`,
-        subject: "Contact Form",
+        from: `${req.body.name} ${req.body.surname} <${req.body.email}>`,
+        subject: `Choice of Framework is: ${req.body.need}`,
         text: req.body.message,
     };
     transport.sendMail(mailOptions, function(err) {

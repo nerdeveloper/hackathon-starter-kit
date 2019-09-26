@@ -67,8 +67,8 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
 //  Express Routing URLS
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
-app.use(function(req: express.Request, res: express.Response, next: express.NextFunction) {
-    return res.redirect("/contact");
+app.use(function(req: express.Request, res: express.Response) {
+    return res.redirect("/404");
 });
 
 if (app.get("env") === "development") {
