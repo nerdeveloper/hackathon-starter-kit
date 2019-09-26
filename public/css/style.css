@@ -1,9 +1,8 @@
 body {
     padding-top: 56px;
 }
-section {
-    padding-top: 3rem;
-    padding-bottom: 2rem;
+#collection {
+    padding: 2rem;
 }
 .g-recaptcha{
     padding-bottom: 1rem;

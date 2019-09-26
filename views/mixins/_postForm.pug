@@ -1,9 +1,10 @@
 mixin postForm(post = {})
 
+  h2.text-center Create a Post
   .container
     .row
       .col-xl-8.offset-xl-2.py-5
-        h2.text-center= title
+        
         form#contact-form(method="POST" action=`/create/${post._id || ''}` role="form")
           .messages
           .controls
