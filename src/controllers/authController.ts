@@ -8,7 +8,7 @@ export const login = (req: Request, res: Response) => {
     if (req.user) {
         return res.redirect("/");
     }
-    res.render("login", {title: "Login"});
+    res.render("login", {title: "Login | Hackathon Starter Kit"});
 };
 
 export const logout = (req: Request, res: Response) => {
@@ -56,7 +56,7 @@ export const isLoggedIn = (req: Request, res: Response, next: NextFunction) => {
     }
 };
 export const register = (req: Request, res: Response) => {
-    res.render("register", {title: "Register"});
+    res.render("register", {title: "Register | Hackathon Starter Kit"});
 };
 
 export const registerForm = async (req: Request, res: Response) => {

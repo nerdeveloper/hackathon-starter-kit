@@ -3,19 +3,19 @@ import {validationResult} from "express-validator";
 import {Post} from "../models/Post";
 
 export const addPost = (req: Request, res: Response) => {
-    res.render("create", {title: "Create Post"});
+    res.render("create", {title: "Create Post | Hackathon Starter Kit"});
 };
 export const posts = async (req: Request, res: Response) => {
     //Find Post by ID
     //@ts-ignore
     const posts = await Post.find({author: req.user.id}).select("title description");
-    res.render("posts", {title: "Your Posts", posts});
+    res.render("posts", {title: "Your Posts | Hackathon Starter Kit", posts});
 };
 export const editPost = async (req: Request, res: Response) => {
     //Find Post by author ID
     //@ts-ignore
     const post = await Post.findOne({_id: req.params.id}).select("title description");
-    res.render("create", {title: "Edit Your Post", post});
+    res.render("create", {title: "Edit Your Post | Hackathon Starter Kit ", post});
 };
 
 export const updatePost = async (req: Request, res: Response) => {

@@ -7,7 +7,7 @@ export const home = (req: Request, res: Response) => {
 };
 
 export const contact = (req: Request, res: Response) => {
-    res.render("contact");
+    res.render("contact", {title: "Contact | Hackathon Starter Kit"});
 };
 export const contactForm = (req: Request, res: Response) => {
     try {

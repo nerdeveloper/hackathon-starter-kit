@@ -10,7 +10,7 @@
     "docker:serve": "NODE_ENV=development nodemon dist/server.js --public",
     "serve:prod": " NODE_ENV=production ./node_modules/.bin/nodemon  app/dist/server.js --public",
     "watch-node": "./node_modules/.bin/nodemon  dist/server.js",
-     "watch": "concurrently \"npm run bundle:watch \" \"npm run watch-ts:dev \" \"npm run serve:dev \"  --names \"💻,📦\" --prefix name",
+    "watch": "concurrently \"npm run bundle:watch \" \"npm run watch-ts:dev \" \"npm run serve:dev \"  --names \"💻,📦\" --prefix name",
     "watch:serve": " concurrently \"npm run bundle:watch \" \"npm run serve:prod \" \"npm run watch-ts:prod \" --names \"💻,📦\" --prefix name",
     "build-ts:dev": "tsc -p tsconfig.json",
     "watch-ts:dev": "tsc -w -p tsconfig.json",
