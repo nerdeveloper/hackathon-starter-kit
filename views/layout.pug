@@ -12,25 +12,25 @@ html
     // Custom stylesheet - for your changes
     link(rel="stylesheet" href="dist/style.css")
     link(rel="manifest" href="manifest.json")
-    
+
     // Tweaks for older IEs
     //if lt IE 9
-        script(src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js")
-        script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+      script(src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js")
+      script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
   body
     include partials/navbar
     br
     block messages
-     if flashes
-      .section
-         .inner
-           .flash-messages
-             - const categories = Object.keys(locals.flashes)
-             each category in categories
-               each message in flashes[category]
-                 .flash(class=`flash--${category}`)
-                   p.flash__text!= message
-                   button.flash__remove(onClick="this.parentElement.remove()") &times; 
+      if flashes.error || flashes.success || flashes.info
+        .section
+          .inner
+            .flash-messages
+              - const categories = Object.keys(locals.flashes)
+              each category in categories
+                each message in flashes[category]
+                  .flash(class=`flash--${category}`)
+                    p.flash__text!= message
+                    button.flash__remove(onClick="this.parentElement.remove()") &times; 
     block content
     include partials/footer
     // JavaScript files
@@ -43,4 +43,4 @@ html
     script(src="dist/App.bundle.js")
     script(src="pwabuilder.js")
 
-    
+

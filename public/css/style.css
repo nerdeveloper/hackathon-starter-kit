@@ -4,7 +4,7 @@ body {
 #collection {
     padding: 2rem;
 }
-.g-recaptcha{
+.g-recaptcha {
     padding-bottom: 1rem;
 }
 .inner {
@@ -116,7 +116,7 @@ body {
     color: white;
     background-color: #ea4335;
 }
-  
+
 .btn-facebook {
     color: white;
     background-color: #3b5998;
@@ -128,28 +128,33 @@ body {
 .btn-github {
     color: white;
     background-color: #24292e;
-} 
+}
 .btn-linkedin {
     color: white;
     background-color: #007bb5;
-} 
+}
 .btn-dropbox {
     color: white;
-    background-color: #3d9ae8 
-} 
+    background-color: #3d9ae8;
+}
 .btn-discord {
     color: white;
     background-color: #7289da;
-} 
+}
 
 .btn-slack {
     color: white;
     background-color: #4a154b;
-} 
+}
 
 /* Small devices (landscape phones, 576px and down) */
 @media (max-width: 575.98px) {
-    .paddingButtons{
+    .paddingButtons {
         padding-bottom: 1rem;
+    }
+}
+@media (max-width: 991.98px) {
+    #hackathonImages {
+        display: none;
     }
 }
