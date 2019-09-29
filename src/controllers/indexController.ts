@@ -1,4 +1,4 @@
-import {Request, Response} from "express";
+import {Request, Response, NextFunction} from "express";
 import {validationResult} from "express-validator";
 import * as mail from "../handlers/mail";
 
@@ -11,6 +11,9 @@ export const contact = (req: Request, res: Response) => {
 };
 export const notFound = (req: Request, res: Response) => {
     res.render("404", {title: "Not Found | Hackathon Starter Kit"});
+};
+export const internalServerError = (err: any, req: Request, res: Response, next: NextFunction) => {
+    res.render("500", {title: "Internal Server Error | Hackathon Starter Kit "});
 };
 export const contactForm = (req: Request, res: Response) => {
     try {
