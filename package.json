@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "start": "npm run build:dev",
-    "lint": "./node_modules/.bin/eslint '**/*.ts' --fix",
+    "lint": "./node_modules/.bin/eslint '**/*.ts' --fix  --quiet",
     "serve:dev": "NODE_ENV=development nodemon dist/server.js --public ",
     "docker:serve": "NODE_ENV=development nodemon dist/server.js --public",
     "serve:prod": " NODE_ENV=production ./node_modules/.bin/nodemon  app/dist/server.js --public",
