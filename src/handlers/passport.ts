@@ -129,24 +129,21 @@ passport.use(
             profileFields: ["emails"], // email should be in the scope.
         },
         (accessToken, refreshToken, profile, done) => {
-            console.log(accessToken);
-            console.log(profile);
+            User.findOne({email: profile._json.email}, (err, user) => {
+                if (err) return done(err);
 
-            // User.findOne({email: profile._json.email}, (err, user) => {
-            //     if (err) return done(err);
-
-            //     if (user) {
-            //         return done(null, user);
-            //     } else {
-            //         const user = new User({facebookId: profile.id, email: profile._json.email, token: accessToken});
-            //         user.save(err => {
-            //             if (err) {
-            //                 throw err;
-            //             }
-            //             return done(null, user);
-            //         });
-            //     }
-            // });
+                if (user) {
+                    return done(null, user);
+                } else {
+                    const user = new User({facebookId: profile.id, email: profile._json.email, token: accessToken});
+                    user.save(err => {
+                        if (err) {
+                            throw err;
+                        }
+                        return done(null, user);
+                    });
+                }
+            });
         },
     ),
 );
