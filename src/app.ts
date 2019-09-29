@@ -38,10 +38,13 @@ app.use(express.static(path.join(__dirname, "../public")));
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 const sessions = {
     name: process.env.SESSION_NAME,
     resave: false,
+    cookie: {
+        expires: expiryDate,
+    },
     saveUninitialized: false,
     secret: process.env.SECRET,
     store: new MongoStore({mongooseConnection: mongoose.connection}),

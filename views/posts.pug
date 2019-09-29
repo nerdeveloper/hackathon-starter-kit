@@ -1,24 +1,26 @@
 extends layout
 
 block content
-
   if posts
-    .row
-      each p in posts
-        .col-lg-6P
-          // Basic Card Example
-          .card.shadow.mb-4
-            .card-header.py-3
-              .row
-                .col-sm-9
-                  h6.m-0.font-weight-bold.text-primary= p.title
-                .col-sm-3
-                  a(href=`/create/${p._id}/edit`)
-                    i.tooltipIcon.fas.fa-pen.fa-md.fa-fw.mr-2.text-gray-400(data-toggle="tooltip", data-placement="top", title="Edit Post")
-                  a(href='#')
-                    i.tooltipIcon.fas.fa-trash.fa-md.fa-fw.mr-2.text-gray-400(data-toggle="modal"  data-placement="top", data-target="#exampleModal" title="Delete Post")
-            .card-body= p.description
-            //Modal 
+    .container
+      .row
+        each p in posts
+          .col-md-4.mb-4
+            .card.shadow.border-0.h-100
+              .card-body
+                h5
+                  a.text-dark= p.title
+                p.text-muted.card-text= p.description
+
+                .row
+                  .col
+                    p.card-text
+                      a.btn.btn-primary.shadow.mr-2(href=`/create/${p._id}/edit`) Edit Post
+                  
+                  .col-6
+                    .card-text
+                      button.btn.btn-primary.shadow.mr-2(data-toggle="modal"  data-target="#exampleModal" ) Delete Post
+          //Modal 
           #exampleModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
             .modal-dialog(role="document")
               .modal-content
@@ -32,6 +34,9 @@ block content
                   button.btn.btn-secondary(type="button" data-dismiss="modal") No
                   a(href=`/create/${p._id}/delete`)
                     button.btn.btn-primary(type="button") Yes
+
+
+
   if posts.length < 1 || posts === undefined
     // Quote
     section
@@ -44,9 +49,3 @@ block content
             | Try Creating a Post.
             a(href=`/create`)
               cite(title="Source Title") Click here
-    
-           
-    
-
-
-

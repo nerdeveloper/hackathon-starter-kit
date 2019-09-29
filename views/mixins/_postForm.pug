@@ -12,13 +12,13 @@ mixin postForm(post = {})
               .col-md-12
                 .form-group
                   label(for="title") Title of your Post *
-                  input#title.form-control(type="text" name="title" value=post.title placeholder="Hello Haven" required="required")
+                  input#title.form-control(type="text" name="title" value=post.title placeholder="Hello Haven" required="required" minlength="10")
 
             .row
               .col-md-12
                 .form-group
                   label(for="description") Description of your Post *
-                  input#description.form-control(type="text" name="description" value=post.description  placeholder="It was a brown stylish fox that jumped over the fence of the next neighbor." required="required" )
+                  input#description.form-control(type="text" name="description" value=post.description  placeholder="It was a brown stylish fox that jumped over the fence of the next neighbor." required="required" minlength="10")
 
               .col-md-12
                 input.btn.btn-success.btn-send(type="submit" value="Save Post")

@@ -18,6 +18,7 @@ export type UserDocument = mongoose.Document & {
     token: any;
     googleId: string;
     linkedinId: string;
+    facebookId: string;
     dropboxId: string;
     githubId: string;
     twitterId: string;
@@ -40,6 +41,7 @@ const userSchema = new mongoose.Schema(
         dropboxId: String,
         githubId: String,
         twitterId: String,
+        facebookId: String,
         discordId: String,
         slackId: String,
         token: String,

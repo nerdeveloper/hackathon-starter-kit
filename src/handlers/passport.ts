@@ -125,24 +125,28 @@ passport.use(
         {
             clientID: `${process.env.FACEBOOK_CLIENT_ID}`,
             clientSecret: `${process.env.FACEBOOK_CLIENT_SECRET}`,
-            callbackURL: `${config.siteurl}/auth/facebook/callback`,
+            callbackURL: `${config.site}/auth/facebook/callback`,
+            profileFields: ["emails"], // email should be in the scope.
         },
         (accessToken, refreshToken, profile, done) => {
-            User.findOne({email: profile._json.email}, (err, user) => {
-                if (err) return done(err);
+            console.log(accessToken);
+            console.log(profile);
 
-                if (user) {
-                    return done(null, user);
-                } else {
-                    const user = new User({twitterId: profile.id, email: profile._json.email, token: accessToken});
-                    user.save(err => {
-                        if (err) {
-                            throw err;
-                        }
-                        return done(null, user);
-                    });
-                }
-            });
+            // User.findOne({email: profile._json.email}, (err, user) => {
+            //     if (err) return done(err);
+
+            //     if (user) {
+            //         return done(null, user);
+            //     } else {
+            //         const user = new User({facebookId: profile.id, email: profile._json.email, token: accessToken});
+            //         user.save(err => {
+            //             if (err) {
+            //                 throw err;
+            //             }
+            //             return done(null, user);
+            //         });
+            //     }
+            // });
         },
     ),
 );
