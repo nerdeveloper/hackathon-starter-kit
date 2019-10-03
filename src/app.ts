@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import session from "express-session";
 import passport from "passport";
+import logger from "morgan";
 import mongo from "connect-mongo";
 import path from "path";
 import flash from "connect-flash";
@@ -27,6 +28,7 @@ app.use(helmet());
 // view engine setup
 app.set("views", path.join(__dirname, "../views")); // this is the folder where we keep our pug files
 app.set("view engine", "pug"); // we use the engine pug, mustache or EJS work great too
+app.use(logger("dev"));
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
