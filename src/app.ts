@@ -72,11 +72,12 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
 //  Express Routing URLS
 app.use("/", indexRouter);
 app.use("/auth", authRouter);
-app.use(function(req: express.Request, res: express.Response) {
-    return res.redirect("/404");
+
+app.get("*", function(req: express.Request, res: express.Response) {
+    return res.status(404).redirect("/404");
 });
 app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-    return res.redirect("/500");
+    return res.status(500).redirect("/500");
 });
 
 if (app.get("env") === "development") {
