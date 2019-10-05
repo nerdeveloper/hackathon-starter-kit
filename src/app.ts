@@ -77,7 +77,7 @@ app.get("*", function(req: express.Request, res: express.Response) {
     return res.status(404).redirect("/404");
 });
 app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-    return res.status(500).redirect("/500");
+    return res.redirect("/500");
 });
 
 if (app.get("env") === "development") {
