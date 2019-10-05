@@ -100,7 +100,7 @@ cp .env.variable.env variable.env
 # Create a database (with MongoDB)
 # Update variable.env file with database credentials
 
-#DEV_MONGODB=mongodb://<username>:<password>@localhost/<database_name>
+# DEV_MONGODB=mongodb://<username>:<password>@localhost/<database_name>
 
 # Install NPM dependencies
 npm install
