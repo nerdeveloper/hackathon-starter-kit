@@ -43,6 +43,7 @@
     "express-flash": "0.0.2",
     "express-recaptcha": "^5.0.1",
     "express-session": "^1.16.2",
+    "express-status-monitor": "^1.2.6",
     "express-validator": "^6.0.1",
     "helmet": "^3.21.0",
     "md5": "^2.2.1",
