@@ -122,6 +122,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "jest": "^24.9.0",
     "nodemon": "^1.19.2",
+    "pm2": "^3.5.1",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.17.0",
     "supertest": "^4.0.2",

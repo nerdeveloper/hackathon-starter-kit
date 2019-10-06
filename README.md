@@ -63,6 +63,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - Contact Form (powered by Sendgrid)
 - PWA Support
 - Google reCAPTCHA
+- Realtime Monitoring
 - HSTS, noSniff, Cross site scripting (XSS) protection and more.
 - **Account Management**
   - Gravatar

@@ -2,7 +2,7 @@
     "dir": "ltr",
     "lang": "English",
     "name": "Hackathon Starter Kit",
-    "scope": ".",
+    "scope": "/",
     "display": "standalone",
     "start_url": "/",
     "short_name": "Hackathon Starter Kit",
