@@ -25,7 +25,8 @@
     "bundle:watch": "webpack -w --display-max-modules 0",
     "bundle": "webpack --display-max-modules 0",
     "build:dev": "npm run build-ts:dev && npm run watch",
-    "docker:build": "npm run build-ts:prod && npm run bundle && npm run copy-assets"
+    "docker:build": "npm run build-ts:prod && npm run bundle && npm run copy-assets",
+    "pm2": "npm run prod && pm2 start ecosystem.config.js --env production"
   },
   "keywords": [],
   "author": "Obinna Odirionye",
