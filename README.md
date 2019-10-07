@@ -57,6 +57,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - Flash notifications
 - MVC Project Structure
 - Node.js clusters support
+- Real-time Monitoring
 - Webpack
 - Css stylesheets
 - Bootstrap 4 + Extra Themes
@@ -285,6 +286,7 @@ target="_blank">Slack Developer Portal </a>
   - Enter the name of the app
 - Click on **Create app**
 - Navigate to  *Oauth & Permission* and your Redirect URL e.g *<http://localhost:3000/auth/slack/callback>* and *Save URL*
+- **Save changes**
 - Copy your **Client ID** and **Client Secret** into the `variable.env` file
 
 ## Project Structure
@@ -293,6 +295,7 @@ target="_blank">Slack Developer Portal </a>
 
 | Name                               | Description                                                  |
 | ---------------------------------- | ------------------------------------------------------------ |
+| .vscode                            | Passport Local and OAuth strategies, plus login middleware.  |
 | **config**/passport.js             | Passport Local and OAuth strategies, plus login middleware.  |
 | **controllers**/api.js             | Controller for /api route and all api examples.              |
 | **controllers**/contact.js         | Controller for contact form.                                 |
