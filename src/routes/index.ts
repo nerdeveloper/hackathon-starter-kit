@@ -16,7 +16,6 @@ function wrapAsync(fn: any) {
 }
 
 router.get("/", indexController.home);
-router.get("/index", indexController.home); //this is created to cache the home page for the service worker(PWA)
 router.get("/contact", indexController.contact);
 router.get("/404", indexController.notFound);
 router.get("/500", indexController.internalServerError);

@@ -177,7 +177,7 @@ The same goes for other providers.`
 - Find the Facebook Login Product and click on **Facebook Login**
 - Instead of going through their Quickstart, click on **Settings** for your app in the top left corner
 - Copy and paste *App ID* and *App Secret* keys into `variable.env`
-- **Note:** *App ID* is **FACEBOOK_ID**, *App Secret* is **FACEBOOK_SECRET** in `.env`
+- **Note:** *App ID* is **FACEBOOK_ID**, *App Secret* is **FACEBOOK_SECRET** in `variable.env`
 - Enter `localhost` under *App Domains*
 - Choose a **Category** that best describes your app
 - Click on **+ Add Platform** and select **Website**
@@ -197,7 +197,7 @@ The same goes for other providers.`
 - Enter *Application Name* and *Homepage URL*
 - For *Authorization Callback URL*: <http://localhost:3000/auth/github/callback>
 - Click **Register application**
-- Now copy and paste *Client ID* and *Client Secret* keys into `.env` file
+- Now copy and paste *Client ID* and *Client Secret* keys into `variable.env` file
 
 -----------------
 
@@ -213,7 +213,7 @@ The same goes for other providers.`
 - Click **Update this Twitter's applications settings**
 - Copy and paste *Consumer Key* and *Consumer Secret* keys into `variable.env` file
 
-<
+-----------------
 
 <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg" width="200">
 
@@ -239,3 +239,18 @@ The same goes for other providers.`
 - Go to <a href="https://sendgrid.com/user/signup" target="_blank">https://sendgrid.com/user/signup</a>
 - Sign up and **confirm** your account via the *activation email*
 - Then enter your SendGrid *Username* and *Password* into `variable.env` file
+
+   -----------------
+
+   <img src="https://discordapp.com/assets/fc0b01fe10a0b8c602fb0106d8189d9b.png" width="200">
+
+- Go to <a href="https://discordapp.com/developers/applications/" target="_blank">Discord Developer Portal </a>
+- Sign up and **confirm** your account via the *activation email*
+
+- Create an application by clicking on **NEW APPLICATION**
+
+- Enter the name of Application and create it
+- Click on the **Oauth2**  to fill in valid Redirection URL e.g *<http://localhost:3000/auth/discordapp/callback>* and save changes
+- Copy your **CLIENT ID** and **CLIENT SECRET** into the `variable.env` file
+
+
