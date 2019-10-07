@@ -293,37 +293,64 @@ target="_blank">Slack Developer Portal </a>
 
    -----------------
 
-| Name                               | Description                                                  |
-| ---------------------------------- | ------------------------------------------------------------ |
-| .vscode                            | Passport Local and OAuth strategies, plus login middleware.  |
-| **config**/passport.js             | Passport Local and OAuth strategies, plus login middleware.  |
-| **controllers**/api.js             | Controller for /api route and all api examples.              |
-| **controllers**/contact.js         | Controller for contact form.                                 |
-| **controllers**/home.js            | Controller for home page (index).                            |
-| **controllers**/user.js            | Controller for user account management.                      |
-| **models**/User.js                 | Mongoose schema and model for User.                          |
-| **public**/                        | Static assets (fonts, css, js, img).                         |
-| **public**/**js**/application.js   | Specify client-side JavaScript dependencies.                 |
-| **public**/**js**/main.js          | Place your client-side JavaScript here.                      |
-| **public**/**css**/main.scss       | Main stylesheet for your app.                                |
-| **public/css/themes**/default.scss | Some Bootstrap overrides to make it look prettier.           |
-| **views/account**/                 | Templates for *login, password reset, signup, profile*.      |
-| **views/api**/                     | Templates for API Examples.                                  |
-| **views/partials**/flash.pug       | Error, info and success flash notifications.                 |
-| **views/partials**/header.pug      | Navbar partial template.                                     |
-| **views/partials**/footer.pug      | Footer partial template.                                     |
-| **views**/layout.pug               | Base template.                                               |
-| **views**/home.pug                 | Home page template.                                          |
-| .dockerignore                      | Folder and files ignored by docker usage.                    |
-| .env.example                       | Your API keys, tokens, passwords and database URI.           |
-| .eslintrc                          | Rules for eslint linter.                                     |
-| .gitignore                         | Folder and files ignored by git.                             |
-| .travis.yml                        | Configuration files for continuous integration.              |
-| app.js                             | The main application file.                                   |
-| docker-compose.yml                 | Docker compose configuration file.                           |
-| Dockerfile                         | Docker configuration file.                                   |
-| package.json                       | NPM dependencies.                                            |
-| package-lock.json                  | Contains exact versions of NPM dependencies in package.json. |
+| Name                                       | Description                                                                                                 |
+|--------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| __tests__                                  | Contains your tests. Separate from source because there is a different build process.                       |
+| .vscode                                    | Contains VS Code specific settings                                                                          |
+| app                                        | Contains the distributable (or output) from your TypeScript build. This is the code you ship to production  |
+| dist                                       | Contains the distributable (or output) from your TypeScript build. For Development only                     |
+| **public**/**css**/style.css               | Contains custom css used in the application.                                                                |
+| **public**/**dist**                        | Contains the output from your Webpack build.                                                                |
+| **public**/**Images**                      | Contains all the icons used for the PWA.                                                                    |
+| **public**/**js**/main.js                  | Contains custom javascript used in the frontend of the application.                                         |
+| **public**/**snap**                        | Contains screenshots of the app used in the README file.                                                    |
+| **public**/mainfest.json                   | The app manifest for the PWA.                                                                               |
+| **public**/pwabuilder.js                   | Custom js files that register the service worker on the broswer.                                            |
+| **public**/sw.js                           | The service worker for the application.                                                                     |
+| **src**/**controllers**/authController.ts  | Controller for the passport authentication of the app{Login and Register}.                                  |
+| **src**/**controllers**/indexController.ts | Controller for the app logic{home, contact, 404, 500}.                                                      |
+| **src**/**controllers**/postController.ts  | Controller for the Post.                                                                                    |
+| **src**/**handlers**/mail.ts               | Handles the sending of email of the app.                                                                    |
+| **src**/**handlers**/passport.ts           | Handles all the authentication and authorisation of third party apps{Facebook, Twitter, LinkedIn and more}. |
+| **src**/**models**/User.ts                 | Mongoose schema and model for User.                                                                         |
+| **src**/**models**/Post.ts                 | Mongoose schema and model for User.                                                                         |
+| **src**/**routes**/index.ts                | Contains all of the routing of the application except auth.                                                 |
+| **src**/**routes**/auth.ts                 | Contains all of the routing of the authentication of third party applications.                              |
+| **src**/app.ts                             | The main application file.                                                                                  |
+| **src**/config.ts                          | Contains the Node environment of the app for both development and production.                               |
+| **src**/server.ts                          | Entry point to your express app.                                                                            |
+| **views**/**mixins**/_postForm.pug         | Contains the reusable form for creating a Post.                                                             |
+| **views**/**partials**/footer.pug          | Footer partial template.                                                                                    |
+| **views**/**partials**/navbar.pug          | Navbar partial template.                                                                                    |
+| **views**/404.pug                          | Not found template.                                                                                         |
+| **views**/500.pug                          | Internal Server template.                                                                                   |
+| **views**/contact.pug                      | Contact form template.                                                                                      |
+| **views**/create.pug                       | Create/Edit a Post template.                                                                                |
+| **views**/home.pug                         | Home page template.                                                                                         |
+| **views**/layout.pug                       | Base template.                                                                                              |
+| **views**/login.pug                        | Login template.                                                                                             |
+| **views**/posts.pug                        | Post page template that show all posts created and edited by the authenticated user.                        |
+| **views**/register.pug                     | Register a user template.                                                                                   |
+| .dockerignore                              | Folder and files ignored by docker usage.                                                                   |
+| .eslintignore                              | Folder and files ignored by Eslint.                                                                         |
+| .eslintrc                                  | Rules for eslint linter.                                                                                    |
+| .gitignore                                 | Folder and files ignored by git.                                                                            |
+| .prettierignore                            | Folder and files ignored by Prettier.                                                                       |
+| .prettierrc                                | Rules for Prettier formatter.                                                                               |
+| .travis.yml                                | Configuration files for continuous integration by Travis CI.                                                |
+| cloudrun.Dockerfile                        | Docker configuration for **google container registry** and **google cloud run**.                            |
+| copy-files.ts                              | Build script that copies **public** and **views** folders to the app folder for production.                 |
+| app.js                                     | The main application file.                                                                                  |
+| docker-compose.yml                         | Docker compose configuration file for Node.js and MongoDB                                                   |
+| Dockerfile                                 | Docker configuration file.                                                                                  |
+| ecosystem.config.js                        | A pm2 configuration file for production.                                                                    |
+| .env.variable.env                          | Your API keys, tokens, passwords and database URI.                                                          |
+| jest.config.js                             | Used to configure Jest running tests written in TypeScript                                                  |
+| package.json                               | NPM dependencies.                                                                                           |
+| package-lock.json                          | Contains exact versions of NPM dependencies in package.json.                                                |
+| tsconfig-prod.json                         | Config settings for compiling server code written in TypeScript for production.                             |
+| tsconfig.json                              | Config settings for compiling server code written in TypeScript for development.                            |
+| webpack.config.js                          | Configuration files for Webpack build.                                                                      |
 
 **Note:** There is no preference how you name or structure your views.
 You could place all your templates in a top-level `views` directory without
