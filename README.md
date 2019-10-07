@@ -29,6 +29,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - [Obtaining API Keys](#obtaining-api-keys)
 - [Project Structure](#project-structure)
 - [List of Packages](#list-of-packages)
+- [List of Packages](#list-of-packages)
 - [Useful Tools and Resources](#useful-tools-and-resources)
 - [Recommended Design Resources](#recommended-design-resources)
 - [Recommended Node.js Libraries](#recommended-nodejs-libraries)
@@ -37,9 +38,9 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - [FAQ](#faq)
 - [How It Works](#how-it-works-mini-guides)
 - [Cheatsheets](#cheatsheets)
-    - [ES6](#-es6-cheatsheet)
-    - [JavaScript Date](#-javascript-date-cheatsheet)
-    - [Mongoose Cheatsheet](#mongoose-cheatsheet)
+  - [ES6](#-es6-cheatsheet)
+  - [JavaScript Date](#-javascript-date-cheatsheet)
+  - [Mongoose Cheatsheet](#mongoose-cheatsheet)
 - [Deployment](#deployment)
 - [Docker](#docker)
 - [Production](#production)
@@ -357,3 +358,85 @@ You could place all your templates in a top-level `views` directory without
 having a nested folder structure, if that makes things easier for you.
 Just don't forget to update `extends ../layout`  and corresponding
 `res.render()` paths in controllers.
+
+## List of Packages
+
+-----------------
+
+`Dependencies are managed through package.json`. In that file you'll find two sections:
+
+### `dependencies`
+
+| Package                       | Description                                                                                                 |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------|
+| body-parser                   | Express 4 middleware.                                                                                       |
+| compression                   | Express 4 middleware.                                                                                       |
+| connect-ensure-login          | Ensures that a user is logged in and redirect to previous URL after login.                                  |
+| connect-flash                 | Express 4 Middleware.                                                                                       |
+| connect-mongo                 | MongoDB session store for Express.                                                                          |
+| cors                          | Express 4 Middleware                                                                                        |
+| dotenv                        | Loads environment variables from variable.env file.                                                         |
+| errorhandler                  | Express 4 middleware.                                                                                       |
+| express                       | Node.js web framework.                                                                                      |
+| express-flash                 | Provides flash messages for Express.                                                                        |
+| express-recaptcha             | Express 4 middleware for Google-reCAPTCHA                                                                   |
+| express-session               | Express 4 middleware.                                                                                       |
+| express-status-monitor        | Report realtime server metrics for Express-based node servers.                                              |
+| express-validator             | Easy form validation for Express.                                                                           |
+| helmet                        | Secures your Express apps by setting various HTTP headers middleware                                        |
+| md5                           | A JavaScript function for hashing messages with MD5.                                                        |
+| mongoose                      | MongoDB ODM.                                                                                                |
+| mongoose-mongodb-errors       | A plugin to transform mongodb like errors                                                                   |
+| morgan                        | Express 4 middleware for logging.                                                                           |
+| nodemailer                    | Node.js library for sending emails.                                                                         |
+| nodemailer-sendgrid-transport | This module is a transport plugin for Nodemailer that makes it possible to send through SendGrid's Web API! |
+| passport                      | Simple and elegant authentication library for node.js                                                       |
+| passport-discord              | Sign-in with Discord plugin.                                                                                |
+| passport-dropbox-oauth2       | Sign-in with Dropbox plugin.                                                                                |
+| passport-facebook             | Sign-in with Facebook plugin.                                                                               |
+| passport-github               | Sign-in with Github plugin.                                                                                 |
+| passport-google-oauth         | Sign-in with Google plugin.                                                                                 |
+| passport-linkedin-oauth2      | Sign-in with LinkedIn plugin.                                                                               |
+| passport-local                | Sign-in with Username and Password plugin.                                                                  |
+| passport-local-mongoose       | A Mongoose plugin that simplifies building username and password login with Passport.                       |
+| passport-slack                | Sign-in with Slack plugin.                                                                                  |
+| passport-twitter              | Sign-in with Twitter plugin.                                                                                |
+| pug (jade)                    | Template engine for Express.                                                                                |
+| shelljs                       | Unix shell commands on top of the Node.js API                                                               |
+| validator                     | A library of string validators and sanitizers.
+
+### `devDependencies`
+
+| Package                               | Description                                                                                                                                  |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| @babel/core                           | Babel compiler core.                                                                                                                         |
+| @babel/preset-env                     | A Babel preset for each environment.                                                                                                         |
+| @types                                | Dependencies in this folder are `.d.ts` files used to provide types                                                                          |
+| @typescript-eslint/eslint-plugin      | TypeScript plugin for ESLint                                                                                                                 |
+| @typescript-eslint/parser             | An ESLint custom parser which leverages TypeScript ESTree                                                                                    |
+| autoprefixer                          | Parse CSS and add vendor prefixes to CSS rules using values from the **Can I Use** website                                                   |
+| babel-core                            | Babel compiler core.                                                                                                                         |
+| babel-loader                          | Babel module loader for webpack                                                                                                              |
+| babel-plugin-transform-util-promisify | Transforms util.promisify to a function definition for node versions < 8, automatically detects if node version >= 8 and does nothing if so. |
+| babel-preset-env                      | A Babel preset for each environment.                                                                                                         |
+| concurrently                          | Utility that manages multiple concurrent tasks. Used with npm scripts                                                                        |
+| css-loader                            | Css loader module for webpack                                                                                                                |
+| eslint                                | An AST-based pattern checker for JavaScript.                                                                                                 |
+| eslint-config-airbnb                  | Airbnb's ESLint config, following our styleguide                                                                                             |
+| eslint-config-prettier                | Turns off all rules that are unnecessary or might conflict with Prettier.                                                                    |
+| eslint-import-resolver-alias          | A simple Node behavior import resolution plugin for eslint-plugin-import, supporting module alias.                                           |
+| eslint-plugin-import                  | Eslint import with sanity.                                                                                                                   |
+| eslint-plugin-jsx-a11y                | Static AST checker for accessibility rules on JSX elements.                                                                                  |
+| eslint-plugin-prettier                | Runs prettier as an eslint rule                                                                                                              |
+| eslint-plugin-react                   | React specific linting rules for ESLint                                                                                                      |
+| extract-text-webpack-plugin           | Extracts text from a bundle into a separate file                                                                                             |
+| jest                                  | Testing library for JavaScript.                                                                                                              |
+| nodemon                               | Utility that automatically restarts node process when it crashes                                                                             |
+| pm2                                   | Production process manager for Node.JS applications with a built-in load balancer.                                                           |
+| postcss-loader                        | PostCSS loader for webpack                                                                                                                   |
+| prettier                              | An opinionated code formatter                                                                                                                |
+| supertest                             | HTTP assertion library.                                                                                                                      |
+| ts-jest                               | A preprocessor with sourcemap support to help use TypeScript with Jest.                                                                      |
+| ts-node                               | Enables directly running TS files. Used to run `copy-static-assets.ts`                                                                       |
+| typescript                            | JavaScript compiler/type checker that boosts JavaScript productivity                                                                         |
+| webpack                               | A module bundler                                                                                                                             |
