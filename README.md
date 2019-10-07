@@ -253,4 +253,77 @@ The same goes for other providers.`
 - Click on the **Oauth2**  to fill in valid Redirection URL e.g *<http://localhost:3000/auth/discordapp/callback>* and save changes
 - Copy your **CLIENT ID** and **CLIENT SECRET** into the `variable.env` file
 
+   -----------------
 
+   <img src="https://aem.dropbox.com/cms/etc.clientlibs/settings/wcm/designs/dropbox-birch/clientlib-all/resources/glyph-40.svg" width="200">
+
+- Go to <a href="https://dropbox.com/developers/apps"
+target="_blank">Dropbox Developer Portal </a>
+- Sign up and **confirm** your account via the *activation email*
+
+- Create an application by clicking on **CREATE APP**
+- Fill out all the *required* fields
+  - Select the **Dropbox API**
+  - Choose the type of access you need
+  - Enter the name of the app
+- Click on **Create app**
+- Fill our Redirection URLS valid Redirection URL e.g *<http://localhost:3000/auth/dropbox/callback>*
+- Copy your **App key** and **App secret** into the `variable.env` file
+
+ -----------------
+
+   <img src="https://slackhq.com/wp-content/themes/babka/img/icons/icon_slack.svg" width="200">
+
+- Go to <a href="https://api.slack.com/apps"
+target="_blank">Slack Developer Portal </a>
+- Sign up and **confirm** your account with your **Workspace’s Slack URL.**
+
+- Create an application by clicking on **CREATE NEW APP**
+- Fill out all the *required* fields
+  - App name
+  - Development Slack Workspace
+  - Enter the name of the app
+- Click on **Create app**
+- Navigate to  *Oauth & Permission* and your Redirect URL e.g *<http://localhost:3000/auth/slack/callback>* and *Save URL*
+- Copy your **Client ID** and **Client Secret** into the `variable.env` file
+
+## Project Structure
+
+   -----------------
+
+| Name                               | Description                                                  |
+| ---------------------------------- | ------------------------------------------------------------ |
+| **config**/passport.js             | Passport Local and OAuth strategies, plus login middleware.  |
+| **controllers**/api.js             | Controller for /api route and all api examples.              |
+| **controllers**/contact.js         | Controller for contact form.                                 |
+| **controllers**/home.js            | Controller for home page (index).                            |
+| **controllers**/user.js            | Controller for user account management.                      |
+| **models**/User.js                 | Mongoose schema and model for User.                          |
+| **public**/                        | Static assets (fonts, css, js, img).                         |
+| **public**/**js**/application.js   | Specify client-side JavaScript dependencies.                 |
+| **public**/**js**/main.js          | Place your client-side JavaScript here.                      |
+| **public**/**css**/main.scss       | Main stylesheet for your app.                                |
+| **public/css/themes**/default.scss | Some Bootstrap overrides to make it look prettier.           |
+| **views/account**/                 | Templates for *login, password reset, signup, profile*.      |
+| **views/api**/                     | Templates for API Examples.                                  |
+| **views/partials**/flash.pug       | Error, info and success flash notifications.                 |
+| **views/partials**/header.pug      | Navbar partial template.                                     |
+| **views/partials**/footer.pug      | Footer partial template.                                     |
+| **views**/layout.pug               | Base template.                                               |
+| **views**/home.pug                 | Home page template.                                          |
+| .dockerignore                      | Folder and files ignored by docker usage.                    |
+| .env.example                       | Your API keys, tokens, passwords and database URI.           |
+| .eslintrc                          | Rules for eslint linter.                                     |
+| .gitignore                         | Folder and files ignored by git.                             |
+| .travis.yml                        | Configuration files for continuous integration.              |
+| app.js                             | The main application file.                                   |
+| docker-compose.yml                 | Docker compose configuration file.                           |
+| Dockerfile                         | Docker configuration file.                                   |
+| package.json                       | NPM dependencies.                                            |
+| package-lock.json                  | Contains exact versions of NPM dependencies in package.json. |
+
+**Note:** There is no preference how you name or structure your views.
+You could place all your templates in a top-level `views` directory without
+having a nested folder structure, if that makes things easier for you.
+Just don't forget to update `extends ../layout`  and corresponding
+`res.render()` paths in controllers.
