@@ -5,7 +5,7 @@ A Node-Typescript/Express Boilerplate with Authentication(Local, Github, Faceboo
 
 ![hackathon-starter-kit](public/snap/image.png)
 
-**Live Demo:** https://hackathon-slhbx5lcqq-uc.a.run.app
+**Live Demo:** <https://hackathon-slhbx5lcqq-uc.a.run.app>
 
 Jump to [What's new?](https://github.com/sahat/hackathon-starter/blob/master/CHANGELOG.md)
 
@@ -478,4 +478,40 @@ One of the best Open source Contributors know I know [Sindre Sorhus](https://sin
 
 - [DevDocs](https://devdocs.io/mongoose) - Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, Typescript.
 
+## Docker
 
+-----------------
+
+You will need docker and docker-compose installed to build the application.
+
+- [Docker installation](https://docs.docker.com/engine/installation/)
+
+- [Common problems setting up docker](https://docs.docker.com/toolbox/faqs/troubleshoot/)
+
+After installing docker, start the application with the following commands :
+
+### Running hackathon-starter kit in Development
+
+```bash
+# Go to the variable.env file and change  your DEV_MONGODB string to DEV_MONGODB=mongodb://app:password@mongodb/hackathon
+# if you have experience with docker and docker-compose, you can edit your credentials  in the docker-compose.yml file.
+
+# To build  and start the project for the first time or when you add dependencies
+docker-compose -f "docker-compose.yml" up -d --build
+```
+
+### Running hackathon-starter kit in Production
+
+```bash
+# Ensure that your a Live MongoDB URL inside your variable.ev [PROD_MONGODB]
+
+# PROD_MONGODB=mongodb://<username>:<password>@<hostname>/<database name>
+
+# Build the project
+npm run docker:build
+
+# Build the Docker image
+docker build --rm -f "prod.Dockerfile" -t typescript-node-kit:latest .
+
+# Run the project
+docker run -d -it --name hackathon -p 8080:8080 [name of the image or ID of the image]

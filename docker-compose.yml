@@ -6,7 +6,7 @@ services:
     build: .
     ports:
       - "3000:3000"
-    env_file: .env
+    env_file: variable.env
     depends_on: 
       - mongodb
     networks: 

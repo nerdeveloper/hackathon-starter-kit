@@ -21,6 +21,8 @@ RUN rm -rf node_modules
 # Our Second stage, that creates an image for production
 FROM node:8-alpine 
 
+LABEL maintainer="Obinna Odirionye"
+
 ARG NODE_ENV=development
 ENV NODE_ENV=${NODE_ENV}
 
@@ -32,7 +34,6 @@ COPY package* ./
 
 RUN npm install --production
 
-COPY variable.env ./
 
 RUN npm i -g nodemon
 
