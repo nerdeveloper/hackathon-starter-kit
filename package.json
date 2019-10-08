@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run build:dev",
     "lint": "./node_modules/.bin/eslint '**/*.ts' --fix  --quiet",
-    "test": "NODE_ENV=development jest --runInBand --forceExit",
+    "test": "NODE_ENV=development jest --runInBand --forceExit --coverage",
     "serve:dev": "NODE_ENV=development nodemon dist/server.js --public ",
     "docker:serve": "NODE_ENV=development nodemon dist/server.js --public",
     "serve:prod": " NODE_ENV=production ./node_modules/.bin/nodemon  app/dist/server.js --public",
