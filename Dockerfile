@@ -32,6 +32,8 @@ COPY package* ./
 
 RUN npm install --production
 
+COPY variable.env ./
+
 RUN npm i -g nodemon
 
 EXPOSE 3000

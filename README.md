@@ -29,18 +29,12 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - [Obtaining API Keys](#obtaining-api-keys)
 - [Project Structure](#project-structure)
 - [List of Packages](#list-of-packages)
-- [List of Packages](#list-of-packages)
 - [Useful Tools and Resources](#useful-tools-and-resources)
 - [Recommended Design Resources](#recommended-design-resources)
 - [Recommended Node.js Libraries](#recommended-nodejs-libraries)
-- [Recommended Client-side Libraries](#recommended-client-side-libraries)
-- [Pro Tips](#pro-tips)
-- [FAQ](#faq)
-- [How It Works](#how-it-works-mini-guides)
 - [Cheatsheets](#cheatsheets)
-  - [ES6](#-es6-cheatsheet)
-  - [JavaScript Date](#-javascript-date-cheatsheet)
-  - [Mongoose Cheatsheet](#mongoose-cheatsheet)
+  - [Typescript](#typescript)
+  - [Mongoose Cheatsheet](#mongoose)
 - [Deployment](#deployment)
 - [Docker](#docker)
 - [Production](#production)
@@ -74,8 +68,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
   - Get a Post
   - Edit/Update a Post
   - Delete a Post
-  - CSRF protection
-- **API Examples**: Facebook, Google, Dropbox, Twitter, LinkedIn.
+- **API Examples**: Facebook, Google, Dropbox, Twitter, LinkedIn and more.
 
 ## Prerequisites
 
@@ -83,6 +76,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 
 - [MongoDB](https://www.mongodb.com/download-center/community)
 - [Node.js 8.0+](http://nodejs.org)
+- [Visual Studio Code](https://code.visualstudio.com/download) *optional*
 
 ## Getting Started
 
@@ -437,6 +431,51 @@ Just don't forget to update `extends ../layout`  and corresponding
 | prettier                              | An opinionated code formatter                                                                                                                |
 | supertest                             | HTTP assertion library.                                                                                                                      |
 | ts-jest                               | A preprocessor with sourcemap support to help use TypeScript with Jest.                                                                      |
-| ts-node                               | Enables directly running TS files. Used to run `copy-static-assets.ts`                                                                       |
+| ts-node                               | Enables directly running TS files. Used to run `copy-files.ts`                                                                       |
 | typescript                            | JavaScript compiler/type checker that boosts JavaScript productivity                                                                         |
 | webpack                               | A module bundler                                                                                                                             |
+
+## Useful Tools and Resources
+
+-----------------
+
+- [DefinitelyTyped](http://definitelytyped.org/) - The repository for high quality TypeScript type definitions.
+- [Learn Node](https://learnnode.com/) - A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.
+- [HTML to Pug converter](https://html2pug.now.sh/) - HTML to PUG is a free online converter to help you convert a HTML snippet to a Pug snippet.
+- [PWA Builder](https://www.pwabuilder.com/) - Quickly and easily turn your website into an app!
+
+## Recommended Design Resources
+
+-----------------
+
+- [Bootstrapious](https://bootstrapious.com/blog) - Learn how to build nice and responsive components in Bootstrap.
+- [Bootsnipp](http://bootsnipp.com/) - Code snippets for Bootstrap.
+- [Google Bootstrap](http://todc.github.io/todc-bootstrap/) - Google-styled theme for Bootstrap.
+- [Font Awesome Icons](https://fontawesome.com/) - It's already part of the Hackathon Starter, so use this page as a reference.
+- [Unsplash](https://unsplash.com/) - Beautiful, free images and photos that you can download and use for any project. Better than any royalty free or stock photos.
+- [Colors](http://clrs.cc) - A nicer color palette for the web.
+- [Creative Button Styles](http://tympanus.net/Development/CreativeButtons/) - awesome button styles.
+
+## Recommended Node.js Libraries
+
+-----------------
+
+One of the best Open source Contributors know I know [Sindre Sorhus](https://sindresorhus.com) has put together an awesome list of Node.js libraries and resources. [Click here](https://github.com/sindresorhus/awesome-nodejs)
+
+## Cheatsheets
+
+-----------------
+
+### Typescript
+
+- [DevDocs](https://devdocs.io/typescript/) - Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, Typescript.
+
+- [Devhint](https://devhints.io/typescript) - The one-page guide to TypeScript: usage, examples, links, snippets, and more.
+
+- [SaltyCrane Blog](https://www.saltycrane.com/typescript-cheat-sheet/latest/) - Typescript cheat sheet blog referencing from the Official Microsoft Typescript repository.
+
+### Mongoose
+
+- [DevDocs](https://devdocs.io/mongoose) - Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, Typescript.
+
+
