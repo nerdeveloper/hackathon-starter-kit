@@ -349,12 +349,6 @@ target="_blank">Slack Developer Portal </a>
 | tsconfig.json                              | Config settings for compiling server code written in TypeScript for development.                            |
 | webpack.config.js                          | Configuration files for Webpack build.                                                                      |
 
-**Note:** There is no preference how you name or structure your views.
-You could place all your templates in a top-level `views` directory without
-having a nested folder structure, if that makes things easier for you.
-Just don't forget to update `extends ../layout`  and corresponding
-`res.render()` paths in controllers.
-
 ## List of Packages
 
 -----------------
@@ -521,7 +515,8 @@ One of the best Open source Contributors know I know [Sindre Sorhus](https://sin
 A Complete feature set for production environment, built with a worldwide community of developers and enterprises. It can be used on Infrastructure-as-a-Service (IaaS) providers like *Digital Ocean Droplets*
 
 ```bash
-# You need to know PM2 run in production mode and will run a bunch of Node.js Clusters. This help to ensure high availability(HA) and Load Balancing
+# You need to know PM2 run in production mode and will run a bunch of Node.js Clusters.
+# This will help to ensure high availability(HA) and Load Balancing.
 
 npm run pm2
 ```
@@ -534,7 +529,7 @@ If you want to setup a CI/CD for your production application for any Infrastruct
 
 <img src="https://miro.medium.com/max/512/1*I0iAulfQwG-rV-xrAKEtqQ.png" width="200">
 
-I believe Serverless Containers are the future of deploying Containerized application. The Hackathon starter kit Demo site runs on *Google Cloud Run*. I also highly recommend this approach.
+I believe Serverless Containers are the future of deploying Containerized applications. The Hackathon starter kit Demo site runs on *Google Cloud Run*. I also highly recommend this approach.
 
 - [Download and install Node.js](https://nodejs.org/)
 - [Select or create](https://console.cloud.google.com/project) a Google Cloud Platform Console project
