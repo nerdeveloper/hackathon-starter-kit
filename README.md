@@ -605,3 +605,35 @@ docker run -d -it --name hackathon -p 8080:8080 [name of the image or ID of the 
 ```
 
 ## Production
+
+-----------------
+
+### Search Engine Optimization (SEO)
+
+Note that SEO only applies to the pages that will be publicly visible with no authentication.  Note that some of the following fields need to be added to the HTML header section similar to the page [title](https://github.com/sahat/hackathon-starter/blob/master/views/layout.pug#L9)
+
+- Add Open Graph fields for SEO
+  Open Graph data:
+
+```html
+  <meta property="og:title" content="Title">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://www.example.com/article.html">
+  <meta property="og:image" content="http://www.example.com/image.png">
+  ```
+
+- Add a page title, description,keywords which will show up in the search results of the search engine.
+
+```html
+   <meta name="title" content="Title of the page">
+  
+   <meta name="Description" content="Description about the page.">
+
+  <meta name="keywords" content=" Keywords used for the page Search indexing">
+```
+
+## Changelog
+
+-----------------
+
+You can find the changelog for the project in: [CHANGELOG.md](https://github.com/sahat/hackathon-starter/blob/master/CHANGELOG.md)
