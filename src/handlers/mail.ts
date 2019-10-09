@@ -13,7 +13,7 @@ const transport = nodemailer.createTransport(
 
 export const send = (req: any, res: any) => {
     const mailOptions = {
-        to: process.env.EMAIL,
+        to: req.body.email, // Enter the email address that will receive emails. Defaults: Sends email to the `from` object.
         from: `${req.body.name} ${req.body.surname} <${req.body.email}>`,
         subject: `Choice of Framework is: ${req.body.need}`,
         text: req.body.message,
