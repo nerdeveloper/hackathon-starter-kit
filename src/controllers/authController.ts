@@ -42,7 +42,6 @@ export const loginForm = (req: Request, res: Response) => {
             })(req, res);
         }
     } catch (e) {
-        res.redirect("/register");
         throw new Error(e);
     }
 };
@@ -76,7 +75,6 @@ export const registerForm = async (req: Request, res: Response) => {
             });
         }
     } catch (e) {
-        res.redirect("/register");
         throw new Error(e);
     }
 };

@@ -57,7 +57,6 @@ export const createPost = async (req: Request, res: Response) => {
             res.redirect("/posts");
         }
     } catch (e) {
-        res.redirect("/");
         throw new Error(e);
     }
 };

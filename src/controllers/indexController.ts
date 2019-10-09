@@ -28,7 +28,6 @@ export const contactForm = (req: Request, res: Response) => {
             mail.send(req, res);
         }
     } catch (e) {
-        res.redirect("/contact");
         throw new Error(e);
     }
 };
