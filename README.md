@@ -132,7 +132,11 @@ restart the server each time you make a small change in code. To install, run
 
 This project offers Real time monitoring only suitable for development purposes.
 
-Go to <http://localhost:3000/status>
+```bash
+
+# Ensure the project is up and running [npm start]
+# Open  http://localhost:3000/status in your broswer.
+```
 
 ## Obtaining API Keys
 
