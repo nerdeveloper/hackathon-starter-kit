@@ -4,6 +4,7 @@
 [![Build Status](https://travis-ci.org/nerdeveloper/hackathon-starter-kit.svg?branch=master)](https://travis-ci.org/nerdeveloper/hackathon-starter-kit)
 ![GitHub package.json version (branch)](https://img.shields.io/github/package-json/v/nerdeveloper/hackathon-starter-kit/master)
 ![David](https://img.shields.io/david/dev/nerdeveloper/hackathon-starter-kit)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f303b2b47c5a448aa168b94e6f259c88)](https://www.codacy.com/manual/nerdeveloper/hackathon-starter-kit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nerdeveloper/hackathon-starter-kit&amp;utm_campaign=Badge_Grade)
 ![GitHub](https://img.shields.io/github/license/nerdeveloper/hackathon-starter-kit)
 
 A Node-Typescript/Express Boilerplate with Authentication(Local, Github, Facebook, Twitter, Google, LinkedIn, Dropbox, Slack, Discord), Authorization, and CRUD functionality + PWA Support!
