@@ -1,4 +1,4 @@
-FROM node:8-alpine 
+FROM node:10-alpine 
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
@@ -17,5 +17,5 @@ RUN npm install --production
 
 RUN npm i -g pm2
 
-CMD ["pm2", "start", "dist/server.js"]
+CMD ["pm2-runtime", "start", "dist/server.js"]
 

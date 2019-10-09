@@ -359,7 +359,6 @@ target="_blank">Slack Developer Portal </a>
 | .prettierignore                            | Folder and files ignored by Prettier.                                                                       |
 | .prettierrc                                | Rules for Prettier formatter.                                                                               |
 | .travis.yml                                | Configuration files for continuous integration by Travis CI.                                                |
-| cloudrun.Dockerfile                        | Docker configuration for **google container registry** and **google cloud run**.                            |
 | copy-files.ts                              | Build script that copies **public** and **views** folders to the app folder for production.                 |
 | app.js                                     | The main application file.                                                                                  |
 | docker-compose.yml                         | Docker compose configuration file for Node.js and MongoDB                                                   |
@@ -566,7 +565,7 @@ I believe Serverless Containers are the future of deploying Containerized applic
 npm run docker:build
 
 # Build a Docker image
-docker build --rm -f "cloudrun.Dockerfile" -t hackathon-starter-kit:latest .
+docker build --rm -f "prod.Dockerfile" -t hackathon-starter-kit:latest .
 
 # Tag the image to a Google Cloud Container Registry URL
 docker tag hackathon-starter-kit us.gcr.io/[PROJECT ID]/hackathon-starter-kit
