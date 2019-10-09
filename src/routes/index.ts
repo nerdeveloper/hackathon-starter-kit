@@ -9,6 +9,13 @@ import * as indexController from "../controllers/indexController";
 import * as postController from "../controllers/postController";
 import {ensureLoggedIn} from "connect-ensure-login";
 
+/*
+  wrapAsync Handler
+  With async/await, you need some way to catch errors
+  Instead of using try{} catch(e) {} in each controller, we wrap the function in
+  wrapAsync(), catch any errors they throw, and pass it along to our express middleware with next()
+*/
+
 function wrapAsync(fn: any) {
     return function(req: Request, res: Response, next: NextFunction) {
         fn(req, res, next).catch(next);
