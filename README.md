@@ -85,7 +85,12 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 
 -----------------
 
-The easiest way to get started is to clone the repository:
+There are two ways to set this project up:
+
+- Setting up manually
+- Setting up using [Docker](#docker)
+
+### Setting up manually
 
 ```bash
 # Get the latest snapshot
@@ -117,7 +122,7 @@ You must start ngrok after starting the project.
 # Install the ngrok package
 npm i -g ngrok
 
-# start ngrok to intercept the data exchanged on port 8080
+# start ngrok to intercept the data exchanged on port 3000
 ngrok http 3000
 ```
 

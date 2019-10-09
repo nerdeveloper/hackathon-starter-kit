@@ -26,7 +26,8 @@
     "bundle": "webpack --display-max-modules 0",
     "build:dev": "npm run build-ts:dev && npm run watch",
     "docker:build": "npm run build-ts:prod && npm run bundle && npm run copy-assets",
-    "pm2": "npm run prod && pm2 start ecosystem.config.js --env production"
+    "pm2": "npm run prod && pm2 start ecosystem.config.js --env production",
+    "release": "release-it --no-npm.publish "
   },
   "keywords": [],
   "author": "Obinna Odirionye",
@@ -65,6 +66,7 @@
     "passport-slack": "0.0.7",
     "passport-twitter": "^1.0.4",
     "pug": "^2.0.4",
+    "release-it": "^12.4.3",
     "shelljs": "^0.8.3",
     "validator": "^11.1.0"
   },
