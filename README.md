@@ -637,13 +637,13 @@ Note that SEO only applies to the pages that will be publicly visible with no au
 
 -----------------
 
-You can find the changelog for the project in: [CHANGELOG.md](https://github.com/sahat/hackathon-starter/blob/master/CHANGELOG.md)
+You can find the changelog for the project in: [CHANGELOG.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CHANGELOG.md)
 
 ## Code of Conduct
 
 -----------------
 
-You can find the changelog for the project in: [CODE_OF_CONDUCT.md](https://github.com/sahat/hackathon-starter/blob/master/CODE_OF_CONDUCT.md)
+You can find the changelog for the project in: [CODE_OF_CONDUCT.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CODE_OF_CONDUCT.md)
 
 ## Contributing
 
