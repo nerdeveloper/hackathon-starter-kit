@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/nerdeveloper/hackathon-starter-kit/compare/v1.0.1...v1.0.2) (2019-10-09)
+
+
+### Bug Fixes
+
+* sessions can get cookies from  sessionStore ([0893904](https://github.com/nerdeveloper/hackathon-starter-kit/commit/08939044b7177e7d709faf3e1e73fe0f90a37386)), closes [#3](https://github.com/nerdeveloper/hackathon-starter-kit/issues/3)
+
 ## [1.0.1](https://github.com/nerdeveloper/hackathon-starter-kit/compare/v1.0.0...v1.0.1) (2019-10-09)
 
 # 1.0.0 (2019-10-09)
