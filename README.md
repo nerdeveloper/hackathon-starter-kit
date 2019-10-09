@@ -638,10 +638,14 @@ You can find the changelog for the project in: [CHANGELOG.md](https://github.com
 
 -----------------
 
-You can find the changelog for the project in: [CODE_OF_CONDUCT.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CODE_OF_CONDUCT.md)
+You can find the Code of Conduct for the project in: [CODE_OF_CONDUCT.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CODE_OF_CONDUCT.md)
 
 ## Contributing
 
 -----------------
 
+You can find how you can contribute to the project in: [CONTRIBUTING.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CONTRIBUTING.md)
 
+## License
+
+You can find how you can contribute to the project in: [CONTRIBUTING.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CONTRIBUTING.md)
