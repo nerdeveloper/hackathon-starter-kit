@@ -7,7 +7,7 @@ A Node-Typescript/Express Boilerplate with Authentication(Local, Github, Faceboo
 
 **Live Demo:** <https://hackathon-slhbx5lcqq-uc.a.run.app>
 
-Jump to [What's new?](https://github.com/sahat/hackathon-starter/blob/master/CHANGELOG.md)
+Jump to [What's new?](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CHANGELOG.md)
 
 A boilerplate for **Node.js/Express(Typescript)** web applications.
 
@@ -76,7 +76,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 -----------------
 
 - [MongoDB](https://www.mongodb.com/download-center/community)
-- [Node.js 8.0+](http://nodejs.org)
+- [Node.js 10.0+](http://nodejs.org)
 - [Visual Studio Code](https://code.visualstudio.com/download) *optional*
 
 ## Getting Started
@@ -474,6 +474,7 @@ target="_blank">Slack Developer Portal </a>
 - [Unsplash](https://unsplash.com/) - Beautiful, free images and photos that you can download and use for any project. Better than any royalty free or stock photos.
 - [Colors](http://clrs.cc) - A nicer color palette for the web.
 - [Creative Button Styles](http://tympanus.net/Development/CreativeButtons/) - awesome button styles.
+- [Icon Finder](https://www.iconfinder.com) - A leading search engine and market place for vector icons in SVG, PNG, CSH and AI format.
 
 ## Recommended Node.js Libraries
 
