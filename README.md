@@ -148,7 +148,7 @@ credentials.
 - Enter your domain(s) in the Domain field. e.g `localhost`
 - Accept the reCAPTCHA Terms of Service.
 - Submit the form
-- Now copy and paste *Client Site Key* into `login.pug` and `register.pug` under the attribute `data-sitekey`.
+- Now copy and paste *Client Site Key* into `login.pug`, `register.pug` and `contact.pug` under the attribute `data-sitekey`.
 
 -----------------
 
@@ -473,7 +473,7 @@ target="_blank">Slack Developer Portal </a>
 
 -----------------
 
-One of the best Open source Contributors know I know [Sindre Sorhus](https://sindresorhus.com) has put together an awesome list of Node.js libraries and resources. [Click here](https://github.com/sindresorhus/awesome-nodejs)
+One of the best Open source Contributors [Sindre Sorhus](https://sindresorhus.com) has put together an awesome list of Node.js libraries and resources. [Click here](https://github.com/sindresorhus/awesome-nodejs)
 
 ## Cheatsheets
 
@@ -633,7 +633,7 @@ Note that SEO only applies to the pages that will be publicly visible with no au
   <meta property="og:image" content="http://www.example.com/image.png">
   ```
 
-- Add a page title, description,keywords which will show up in the search results of the search engine.
+- Add a page title, description, keywords which will show up in the search results of the search engine.
 
 ```html
    <meta name="title" content="Title of the page">

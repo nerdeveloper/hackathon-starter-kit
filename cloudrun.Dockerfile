@@ -36,8 +36,6 @@ COPY variable.env ./
 
 COPY package* ./
 
-RUN npm i -g pm2
-
 RUN npm install --production
 
 CMD ["node", "dist/server.js"]
