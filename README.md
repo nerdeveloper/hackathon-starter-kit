@@ -648,4 +648,4 @@ You can find how you can contribute to the project in: [CONTRIBUTING.md](https:/
 
 ## License
 
-You can find how you can contribute to the project in: [CONTRIBUTING.md](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/CONTRIBUTING.md)
+You can find how you can contribute to the project in: [LICENSE](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/LICENSE)
