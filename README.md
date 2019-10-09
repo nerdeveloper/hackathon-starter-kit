@@ -137,6 +137,21 @@ to obtain appropriate credentials: Client ID, Client Secret, API Key, or
 Username & Password. You will need to go through each provider to generate new
 credentials.
 
+<img src="https://www.google.com/recaptcha/intro/assets/google_logo_160x56_2x.png" width="200"> reCAPTCHA
+
+- Go to <a href="https://www.google.com/recaptcha/admin" target="_blank">Admin Console</a>
+- Select **+** from the navbar to add a site.
+- Enter a your Site Name in the Label field.
+- Select your **reCAPTCHA type**
+  - Select **reCAPTCHA v2**
+  - Select **"I'm not a robot" Checkbox**
+- Enter your domain(s) in the Domain field. e.g `localhost`
+- Accept the reCAPTCHA Terms of Service.
+- Submit the form
+- Now copy and paste *Client Site Key* into `login.pug` and `register.pug` under the attribute `data-sitekey`.
+
+-----------------
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1000px-Google_2015_logo.svg.png" width="200">
 
 - Visit <a href="https://cloud.google.com/console/project" target="_blank">Google Cloud Console</a>
@@ -622,11 +637,21 @@ Note that SEO only applies to the pages that will be publicly visible with no au
 
 ```html
    <meta name="title" content="Title of the page">
-  
    <meta name="Description" content="Description about the page.">
-
-  <meta name="keywords" content=" Keywords used for the page Search indexing">
+   <meta name="keywords" content=" Keywords used for the page Search indexing">
 ```
+
+## Credits
+
+- [Sahat Yalkabov](https://github.com/sahat/hackathon-starter) - JavaScript
+- [Prosper Otemuyiwa](https://github.com/unicodeveloper/laravel-hackathon-starter) - PHP
+- [Microsoft](https://github.com/microsoft/TypeScript-Node-Starter) - Typescript
+
+## Make me feel :heart: and appreciated
+
+You can :star: the repo | Tell your friends about it | Fork it and submit Pull Requests.
+
+You can also follow me on **[Twitter](https://twitter.com/_nerdeveloper)**
 
 ## Changelog
 
