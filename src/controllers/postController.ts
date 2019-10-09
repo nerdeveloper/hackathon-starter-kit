@@ -38,25 +38,21 @@ export const deletePost = async (req: Request, res: Response) => {
 };
 
 export const createPost = async (req: Request, res: Response) => {
-    try {
-        const errors = validationResult(req);
+    const errors = validationResult(req);
 
-        if (!errors.isEmpty()) {
-            //@ts-ignore
-            req.flash("error", errors.array().map(err => err.msg));
-            res.render("create", {
-                title: "Create Post",
-                body: req.body,
-                flashes: req.flash(),
-            });
-        } else {
-            //@ts-ignore
-            req.body.author = req.user._id;
-            await new Post(req.body).save();
-            req.flash("success", "Your Post has been created!");
-            res.redirect("/posts");
-        }
-    } catch (e) {
-        throw new Error(e);
+    if (!errors.isEmpty()) {
+        //@ts-ignore
+        req.flash("error", errors.array().map(err => err.msg));
+        res.render("create", {
+            title: "Create Post",
+            body: req.body,
+            flashes: req.flash(),
+        });
+    } else {
+        //@ts-ignore
+        req.body.author = req.user._id;
+        await new Post(req.body).save();
+        req.flash("success", "Your Post has been created!");
+        res.redirect("/posts");
     }
 };
