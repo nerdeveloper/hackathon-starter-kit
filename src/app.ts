@@ -41,19 +41,20 @@ app.use(express.static(path.join(__dirname, "../public")));
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
-const sessions = {
-    name: process.env.SESSION_NAME,
-    resave: false,
-    cookie: {
-        expires: expiryDate,
-    },
-    saveUninitialized: false,
-    secret: process.env.SECRET,
-    store: new MongoStore({mongooseConnection: mongoose.connection}),
-};
 
-app.use(session(sessions));
+const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
+app.use(
+    session({
+        name: process.env.SESSION_NAME,
+        secret: process.env.SECRET,
+        resave: false,
+        saveUninitialized: false,
+        store: new MongoStore({mongooseConnection: mongoose.connection}),
+        cookie: {
+            expires: expiryDate,
+        },
+    }),
+);
 
 // Passport JS is what we use to handle our logins
 app.use(passport.initialize());
@@ -81,6 +82,17 @@ app.get("*", function(req: express.Request, res: express.Response) {
 if (app.get("env") === "development") {
     app.use(errorHandler());
     app.locals.pretty = true;
+}
+
+if (app.get("env") === "production") {
+    // 500 - Any server error
+    app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+        res.status(err.status || 500);
+        res.render("error", {
+            message: err.message,
+            error: {},
+        });
+    });
 }
 
 export default app;
