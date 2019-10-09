@@ -8,6 +8,8 @@ branches:
     - master
 notifications:
   email: false 
+services:
+  - mongodb
 
 before_script:
   - npm prune
