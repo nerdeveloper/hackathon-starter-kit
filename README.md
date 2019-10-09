@@ -1,6 +1,8 @@
 
 # Hackathon Starter Kit(Node-Typescript/Express)
 
+[![Build Status](https://travis-ci.org/nerdeveloper/hackathon-starter-kit.svg?branch=master)](https://travis-ci.org/nerdeveloper/hackathon-starter-kit)
+
 A Node-Typescript/Express Boilerplate with Authentication(Local, Github, Facebook, Twitter, Google, LinkedIn, Dropbox, Slack, Discord), Authorization, and CRUD functionality + PWA Support!
 
 ![hackathon-starter-kit](public/snap/image.png)
