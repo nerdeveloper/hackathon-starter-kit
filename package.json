@@ -1,6 +1,6 @@
 {
   "name": "hackathon-starter-kit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Node-Typescript/Express Boilerplate with Authentication(Local, Github, Facebook, Twitter, Google, Dropbox, LinkedIn, Instagram, Slack), Authorization, and CRUD functionality + PWA Support!",
   "main": "dist/server.js",
   "scripts": {
