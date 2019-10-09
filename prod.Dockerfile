@@ -15,7 +15,7 @@ COPY package* ./
 
 RUN npm install --production
 
-RUN npm i -g pm2
+RUN npm i -g nodemon
 
-CMD ["pm2-runtime", "start", "dist/server.js"]
+CMD ["nodemon", "dist/server.js", "--public"]
 
