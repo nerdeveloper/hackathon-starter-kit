@@ -612,7 +612,7 @@ docker-compose -f "docker-compose.yml" up -d --build
 ### Running hackathon-starter kit in Production
 
 ```bash
-# Ensure that your a Live MongoDB URL inside your variable.ev [PROD_MONGODB]
+# Ensure that you have a Live MongoDB URL inside your variable.env [PROD_MONGODB]
 
 # PROD_MONGODB=mongodb://<username>:<password>@<hostname>/<database name>
 
@@ -632,7 +632,7 @@ docker run -d -it --name hackathon -p 8080:8080 [name of the image or ID of the 
 
 ### Search Engine Optimization (SEO)
 
-Note that SEO only applies to the pages that will be publicly visible with no authentication.  Note that some of the following fields need to be added to the HTML header section similar to the page [title](https://github.com/sahat/hackathon-starter/blob/master/views/layout.pug#L9)
+Note that SEO only applies to the pages that will be publicly visible with no authentication.  Note that some of the following fields need to be added to the HTML header section similar to the page [title](https://github.com/nerdeveloper/hackathon-starter-kit/blob/master/views/layout.pug#L6)
 
 - Add Open Graph fields for SEO
   Open Graph data:
