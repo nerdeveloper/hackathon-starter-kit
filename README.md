@@ -128,6 +128,12 @@ save you a lot of time in the long run, because you won't need to manually
 restart the server each time you make a small change in code. To install, run
 `npm install -g nodemon` or `sudo npm i -g nodemon`
 
+### Monitoring
+
+This project offers Real time monitoring only suitable for development purposes.
+
+Go to <http://localhost:3000/status>
+
 ## Obtaining API Keys
 
 -----------------
