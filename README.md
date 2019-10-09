@@ -343,6 +343,7 @@ target="_blank">Slack Developer Portal </a>
 | jest.config.js                             | Used to configure Jest running tests written in TypeScript                                                  |
 | package.json                               | NPM dependencies.                                                                                           |
 | package-lock.json                          | Contains exact versions of NPM dependencies in package.json.                                                |
+| prod.Dockerfile                            | Docker configuration for running app in a production env.                                                    |
 | tsconfig-prod.json                         | Config settings for compiling server code written in TypeScript for production.                             |
 | tsconfig.json                              | Config settings for compiling server code written in TypeScript for development.                            |
 | webpack.config.js                          | Configuration files for Webpack build.                                                                      |
@@ -435,6 +436,8 @@ Just don't forget to update `extends ../layout`  and corresponding
 | typescript                            | JavaScript compiler/type checker that boosts JavaScript productivity                                                                         |
 | webpack                               | A module bundler                                                                                                                             |
 
+:top: <sub>[**back to top**](#table-of-contents)</sub>
+
 ## Useful Tools and Resources
 
 -----------------
@@ -478,6 +481,90 @@ One of the best Open source Contributors know I know [Sindre Sorhus](https://sin
 
 - [DevDocs](https://devdocs.io/mongoose) - Fast, offline, and free documentation browser for developers. Search 100+ docs in one web app: HTML, CSS, JavaScript, PHP, Ruby, Python, Go, Typescript.
 
+## Deployment
+
+-----------------
+
+ Once you are ready to deploy your app, you will need to create an account with a cloud platform to host it. These are not the only choices, You can use *Digital Ocean*, *Azure Virtual Machines*, *Google Cloud Compute Engine*  Additionally, you can create an account with MongoDB Atlas and then pick one of the 4 providers below. Again, there are plenty of other choices, and you are not limited to just the ones listed below.
+
+### Hosted MongoDB Atlas
+
+-----------------
+
+ <img src="https://www.mongodb.com/assets/images/global/MongoDB_Logo_Dark.svg" width="200">
+
+- Go to [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
+- Click the green **Get started free** button
+- Fill in your information then hit **Get started free**
+- You will be redirected to Create New Cluster page.
+- Select a **Cloud Provider and Region** (such as AWS and a free tier region)
+- Select cluster Tier to **Free Shared Clusters**
+- Give Cluster a name (default: Cluster0)
+- Click on green **:zap:Create Cluster button**
+- Now, to access your database you need to create a DB user. To create a new MongoDB user, from the **Clusters view**, select the **Security tab**
+- Under the **MongoDB Users** tab, click on **+Add New User**
+- Fill in a username and password and give it either **Atlas Admin** User Privilege
+- Next, you will need to create an IP address whitelist and obtain the connection URI.  In the Clusters view, under the cluster details (i.e. SANDBOX - Cluster0), click on the **CONNECT** button.
+- Under section **(1) Check the IP Whitelist**, click on **ALLOW ACCESS FROM ANYWHERE**. The form will add a field with `0.0.0.0/0`.  Click **SAVE** to save the `0.0.0.0/0` whitelist.
+- Under section **(2) Choose a connection method**, click on **Connect Your Application**
+- In the new screen, select **Node.js** as Driver and version **2.2.12 or later**. _*WARNING*_: Do not pick 3.0 or later since connect-mongo can't handle mongodb+srv:// connection strings.
+- Finally, copy the URI connection string and replace the URI in **PROD_MONGODB** of `variable.env` with this URI string.  Make sure to replace the <PASSWORD> with the db User password that you created under the Security tab.
+- Note that after some of the steps in the Atlas UI, you may see a banner stating `We are deploying your changes`.  You will need to wait for the deployment to finish before using the DB in your application.
+
+**Note:** As an alternative to MongoDB Atlas, there is also [Compose](https://www.compose.io/).
+
+### PM2
+
+-----------------
+
+A Complete feature set for production environment, built with a worldwide community of developers and enterprises. It can be used on Infrastructure-as-a-Service (IaaS) providers like *Digital Ocean Droplets*
+
+```bash
+# You need to know PM2 run in production mode and will run a bunch of Node.js Clusters. This help to ensure high availability(HA) and Load Balancing
+
+npm run pm2
+```
+
+If you want to setup a CI/CD for your production application for any Infrastructure-as-a-Service (IaaS) Cloud provider, [Click here.](http://pm2.keymetrics.io/docs/usage/deployment/)
+
+### Google Cloud Run(Serverless Containers)
+
+-----------------
+
+<img src="https://miro.medium.com/max/512/1*I0iAulfQwG-rV-xrAKEtqQ.png" width="200">
+
+I believe Serverless Containers are the future of deploying Containerized application. The Hackathon starter kit Demo site runs on *Google Cloud Run*. I also highly recommend this approach.
+
+- [Download and install Node.js](https://nodejs.org/)
+- [Select or create](https://console.cloud.google.com/project) a Google Cloud Platform Console project
+- [Enable billing](https://support.google.com/cloud/answer/6293499#enable-billing) for your project (there's a $300 free trial)
+
+```bash
+# Build the project for a production environment.
+npm run docker:build
+
+# Build a Docker image
+docker build --rm -f "cloudrun.Dockerfile" -t hackathon-starter-kit:latest .
+
+# Tag the image to a Google Cloud Container Registry URL
+docker tag hackathon-starter-kit us.gcr.io/[PROJECT ID]/hackathon-starter-kit
+
+# Push the newly tagged image to the Google Cloud Container Registry.
+docker push us.gcr.io/[PROJECT_ID]/hackathon-starter-kit
+
+```
+
+- Sign in your Google Cloud console
+- Select **Container Registry**
+- You will see latest version of the pushed image. See the image below:
+![google-cloud-run](public/snap/image_1.png)
+- Select **Deploy to Cloud Run**
+- You will be redirected to the google cloud run page.
+- Fill in the required fields. *Look at the image below for a preview*
+![google-cloud-run](public/snap/image_2.png)
+- Click on **CREATE** button below your fields.
+- Congratulations! Your app now runs on Serverless 🎊🎊🎊.
+
 ## Docker
 
 -----------------
@@ -493,10 +580,10 @@ After installing docker, start the application with the following commands :
 ### Running hackathon-starter kit in Development
 
 ```bash
-# Go to the variable.env file and change  your DEV_MONGODB string to DEV_MONGODB=mongodb://app:password@mongodb/hackathon
+# Go to the variable.env file and change  your DEV_MONGODB value to mongodb://app:password@mongodb/hackathon
 # if you have experience with docker and docker-compose, you can edit your credentials  in the docker-compose.yml file.
 
-# To build  and start the project for the first time or when you add dependencies
+# To build  and start the project for the first time.
 docker-compose -f "docker-compose.yml" up -d --build
 ```
 
@@ -515,3 +602,6 @@ docker build --rm -f "prod.Dockerfile" -t typescript-node-kit:latest .
 
 # Run the project
 docker run -d -it --name hackathon -p 8080:8080 [name of the image or ID of the image]
+```
+
+## Production

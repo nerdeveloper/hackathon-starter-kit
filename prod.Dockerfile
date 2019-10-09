@@ -15,5 +15,7 @@ COPY package* ./
 
 RUN npm install --production
 
-CMD ["node", "dist/server.js"]
+RUN npm i -g pm2
+
+CMD ["pm2", "start", "dist/server.js"]
 
