@@ -3,7 +3,8 @@
       "tagName": "v${version}"
     },
     "github": {
-      "release": true
+      "release": true,
+      "releaseNotes": true
     },
     "plugins": {
         "@release-it/conventional-changelog": {
