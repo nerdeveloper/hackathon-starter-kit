@@ -59,10 +59,9 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - Flash notifications
 - MVC Project Structure
 - Node.js clusters support
-- Real-time Monitoring
 - Webpack
 - Css stylesheets
-- Bootstrap 4 + Extra Themes
+- Bootstrap 4 
 - Contact Form (powered by Sendgrid)
 - PWA Support
 - Google reCAPTCHA
@@ -631,6 +630,16 @@ docker-compose -f "docker-compose.yml" up -d --build
 ### Running hackathon-starter kit in Production
 
 ```bash
+
+# Get the latest snapshot
+git clone https://github.com/nerdeveloper/hackathon-starter-kit.git
+
+# Change directory
+cd hackathon-starter-kit
+
+# Copy .env.example to .env
+cp .env.variable.env variable.env
+
 # Ensure that you have a Live MongoDB URL inside your variable.env [PROD_MONGODB]
 
 # PROD_MONGODB=mongodb://<username>:<password>@<hostname>/<database name>
