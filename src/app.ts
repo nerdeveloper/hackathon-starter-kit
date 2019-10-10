@@ -42,7 +42,6 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-const expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 app.use(
     session({
         name: process.env.SESSION_NAME,
@@ -50,9 +49,6 @@ app.use(
         resave: false,
         saveUninitialized: false,
         store: new MongoStore({mongooseConnection: mongoose.connection}),
-        cookie: {
-            expires: expiryDate,
-        },
     }),
 );
 
@@ -77,14 +73,6 @@ app.use("/auth", authRouter);
 
 app.get("*", function(req: express.Request, res: express.Response) {
     return res.status(404).redirect("/404");
-});
-// 500 - Any server error
-app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-    res.status(err.status || 500);
-    res.render("error", {
-        message: err.message,
-        error: {},
-    });
 });
 
 if (app.get("env") === "development") {
