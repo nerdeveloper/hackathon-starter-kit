@@ -1,10 +1,11 @@
 {
     "git": {
-      "tagName": "v${version}"
+      "tagName": "v${version}",
+      "changelog": "git log --pretty=format:'* %s (%h)' [REV_RANGE]"
     },
     "github": {
       "release": true,
-      "releaseNotes": true
+      "releaseNotes": null
     },
     "plugins": {
         "@release-it/conventional-changelog": {
