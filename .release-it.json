@@ -1,11 +1,14 @@
 {
     "git": {
-      "tagName": "v${version}"
+      "tagName": "v${version}",
+      "changelog": "auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs"
     },
     "github": {
-      "release": true,
-      "releaseNotes": "git log --pretty=format:'* %s (%h)' [REV_RANGE]"
+      "release": true
     },
+    "hooks": {
+        "after:bump": "auto-changelog -p"
+      }, 
     "plugins": {
         "@release-it/conventional-changelog": {
           "preset": "angular",
