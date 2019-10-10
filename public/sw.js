@@ -12,19 +12,6 @@ const offlineFallbackPage = "ToDo-replace-this-name.html";
 const networkFirstPaths = [
     /* Add an array of regex of paths that should go network first */
     // Example: /\/api\/.*/
-
-    "./home",
-    "./login",
-    "./register",
-    "./contact",
-    "./create",
-    "./delete",
-    "./posts",
-    "./dist/style.css",
-    "./dist/App.bundle.js",
-    "./sw.js",
-    "./pwabuilder.js",
-    "./manifest.json",
 ];
 
 const avoidCachingPaths = [

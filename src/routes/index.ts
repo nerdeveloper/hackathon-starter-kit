@@ -23,7 +23,6 @@ function wrapAsync(fn: any) {
 }
 
 router.get("/", indexController.home);
-router.get("/home", indexController.home); // this route will be used by the service worker to cache the homepage
 router.get("/contact", indexController.contact);
 router.get("/404", indexController.notFound);
 
