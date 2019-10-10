@@ -4,7 +4,8 @@
       "changelog": "auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs"
     },
     "github": {
-      "release": true
+      "release": true, 
+      "releaseNotes": "auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs"
     },
     "hooks": {
         "after:bump": "auto-changelog -p"
