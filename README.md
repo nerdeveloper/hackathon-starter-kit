@@ -539,7 +539,7 @@ One of the best Open source Contributors [Sindre Sorhus](https://sindresorhus.co
 - Under section **(1) Check the IP Whitelist**, click on **ALLOW ACCESS FROM ANYWHERE**. The form will add a field with `0.0.0.0/0`.  Click **SAVE** to save the `0.0.0.0/0` whitelist.
 - Under section **(2) Choose a connection method**, click on **Connect Your Application**
 - In the new screen, select **Node.js** as Driver and version **2.2.12 or later**. _*WARNING*_: Do not pick 3.0 or later since connect-mongo can't handle mongodb+srv:// connection strings.
-- Finally, copy the URI connection string and replace the URI in **PROD_MONGODB** of `variable.env` with this URI string.  Make sure to replace the <PASSWORD> with the db User password that you created under the Security tab.
+- Finally, copy the URI connection string and replace the URI in **PROD_MONGODB** of `variable.env` with this URI string.  Make sure to replace the **PASSWORD** with the db User password that you created under the Security tab.
 - Note that after some of the steps in the Atlas UI, you may see a banner stating `We are deploying your changes`.  You will need to wait for the deployment to finish before using the DB in your application.
 
 **Note:** As an alternative to MongoDB Atlas, there is also [Compose](https://www.compose.io/).
@@ -612,6 +612,15 @@ After installing docker, start the application with the following commands :
 ### Running hackathon-starter kit in Development
 
 ```bash
+# Get the latest snapshot
+git clone https://github.com/nerdeveloper/hackathon-starter-kit.git
+
+# Change directory
+cd hackathon-starter-kit
+
+# Copy .env.example to .env
+cp .env.variable.env variable.env
+
 # Go to the variable.env file and change  your DEV_MONGODB value to mongodb://app:password@mongodb/hackathon
 # if you have experience with docker and docker-compose, you can edit your credentials  in the docker-compose.yml file.
 
