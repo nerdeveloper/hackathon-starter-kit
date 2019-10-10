@@ -45,9 +45,6 @@ const userSchema = new mongoose.Schema(
         discordId: String,
         slackId: String,
         token: String,
-
-        resetPasswordToken: String,
-        resetPasswordExpires: Date,
     },
     {
         toJSON: {virtuals: true},

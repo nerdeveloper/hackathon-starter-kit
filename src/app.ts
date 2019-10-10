@@ -78,21 +78,18 @@ app.use("/auth", authRouter);
 app.get("*", function(req: express.Request, res: express.Response) {
     return res.status(404).redirect("/404");
 });
+// 500 - Any server error
+app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+    res.status(err.status || 500);
+    res.render("error", {
+        message: err.message,
+        error: {},
+    });
+});
 
 if (app.get("env") === "development") {
     app.use(errorHandler());
     app.locals.pretty = true;
-}
-
-if (app.get("env") === "production") {
-    // 500 - Any server error
-    app.use(function(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
-        res.status(err.status || 500);
-        res.render("error", {
-            message: err.message,
-            error: {},
-        });
-    });
 }
 
 export default app;
