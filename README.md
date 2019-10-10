@@ -327,7 +327,7 @@ target="_blank">Slack Developer Portal </a>
 
 | Name                                       | Description                                                                                                 |
 |--------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| __tests__                                  | Contains your tests. Separate from source because there is a different build process.                       |
+| **__tests__**                                  | Contains your tests. Separate from source because there is a different build process.                       |
 | .vscode                                    | Contains VS Code specific settings                                                                          |
 | app                                        | Contains the distributable (or output) from your TypeScript build. This is the code you ship to production  |
 | dist                                       | Contains the distributable (or output) from your TypeScript build. For Development only                     |

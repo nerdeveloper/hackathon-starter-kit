@@ -1,7 +1,9 @@
 {
     "git": {
       "tagName": "v${version}",
-      "changelog": "auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs"
+      "changelog": "auto-changelog --stdout --commit-limit false -u --template ./changelog.hbs",
+      "commit": true,
+      "tag": true
     },
     "github": {
       "release": true
