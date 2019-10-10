@@ -61,7 +61,7 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - Node.js clusters support
 - Webpack
 - Css stylesheets
-- Bootstrap 4 
+- Bootstrap 4
 - Contact Form (powered by Sendgrid)
 - PWA Support
 - Google reCAPTCHA
