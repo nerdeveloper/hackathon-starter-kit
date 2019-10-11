@@ -692,6 +692,10 @@ You can :star: the repo | Tell your friends about it | Fork it and submit Pull R
 
 You can also follow me on **[Twitter](https://twitter.com/_nerdeveloper)**
 
+## Inspiration
+
+My inspiration for building this is the [ecommerce-netlify](https://github.com/sdras/ecommerce-netlify) by [Sarah Drasner](https://twitter.com/sarah_edo)
+
 ## Changelog
 
 -----------------
