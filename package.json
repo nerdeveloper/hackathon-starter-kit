@@ -27,7 +27,7 @@
     "build:dev": "npm run build-ts:dev && npm run watch",
     "docker:build": "npm run build-ts:prod && npm run bundle && npm run copy-assets",
     "pm2": "npm run prod && pm2 start ecosystem.config.js --env production",
-    "release": "release-it --no-npm.publish "
+    "release": "release-it --config .release-it.json --no-npm.publish"
   },
   "keywords": [],
   "author": "Obinna Odirionye",
