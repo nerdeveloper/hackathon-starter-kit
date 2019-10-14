@@ -1,3 +1,5 @@
 public/**/* linguist-vendored # exact, absolute path
 views/**/* linguist-vendored # exact, absolute path
 public/* linguist-vendored # exact, absolute path
+*/js/* linguist-vendored # wildcarded, absolute path with 2-dir levels
+**/js/* linguist-vendored # wildcarded, absolute path with n-dir levels
