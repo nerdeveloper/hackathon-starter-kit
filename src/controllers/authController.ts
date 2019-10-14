@@ -36,7 +36,7 @@ export const loginForm = (req: Request, res: Response) => {
 
             passport.authenticate("local", {
                 failureRedirect: "/login",
-                successReturnToOrRedirect: "/",
+                successReturnToOrRedirect: "/posts",
                 failureFlash: "Invalid Email or Password",
                 successFlash: "You are now logged in!",
             })(req, res);

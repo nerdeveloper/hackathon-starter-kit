@@ -44,6 +44,8 @@ The Node-Typescript/Express Hackathon Starter Kit is production ready with authe
 - [Deployment](#deployment)
 - [Docker](#docker)
 - [Production](#production)
+- [Credits](#credits)
+- [Inspiration](#inspiration)
 - [Changelog](#changelog)
 - [Code of Conduct](#code-of-conduct)
 - [Contributing](#contributing)
@@ -571,6 +573,11 @@ I believe Serverless Containers are the future of deploying Containerized applic
 - [Enable billing](https://support.google.com/cloud/answer/6293499#enable-billing) for your project (there's a $300 free trial)
 
 ```bash
+
+# Ensure that you have a Live MongoDB URL inside your variable.env [PROD_MONGODB]
+
+# PROD_MONGODB=mongodb://<username>:<password>@<hostname>/<database name>
+
 # Build the project for a production environment.
 npm run docker:build
 
@@ -625,6 +632,9 @@ cp .env.variable.env variable.env
 
 # To build  and start the project for the first time.
 docker-compose -f "docker-compose.yml" up -d --build
+
+# Run the project
+docker run -d -it --name hackathon -p 3000:3000 [name of the image or ID of the image]
 ```
 
 ### Running hackathon-starter kit in Production

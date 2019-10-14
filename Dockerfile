@@ -18,7 +18,7 @@ RUN rm -rf node_modules
 
 
 
-# Our Second stage, that creates an image for production
+# Our Second stage, that creates the final image.
 FROM node:10-alpine 
 
 LABEL maintainer="Obinna Odirionye"
