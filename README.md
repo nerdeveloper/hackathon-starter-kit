@@ -700,7 +700,7 @@ Note that SEO only applies to the pages that will be publicly visible with no au
 
 You can :star: the repo | Tell your friends about it | Fork it and submit Pull Requests.
 
-You can also follow me on **[Twitter](https://twitter.com/_nerdeveloper)**
+You can also follow me on **[Twitter](https://twitter.com/odirionyeo)**
 
 ## Inspiration
 
