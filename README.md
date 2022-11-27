@@ -488,6 +488,7 @@ target="_blank">Slack Developer Portal </a>
 - [Font Awesome Icons](https://fontawesome.com/) - It's already part of the Hackathon Starter, so use this page as a reference.
 - [Unsplash](https://unsplash.com/) - Beautiful, free images and photos that you can download and use for any project. Better than any royalty free or stock photos.
 - [Colors](http://clrs.cc) - A nicer color palette for the web.
+- [Colors](https://branition.com/colors) - Hand-curated collection of color palettes best fitted for branding.
 - [Creative Button Styles](http://tympanus.net/Development/CreativeButtons/) - awesome button styles.
 - [Icon Finder](https://www.iconfinder.com) - A leading search engine and market place for vector icons in SVG, PNG, CSH and AI format.
 
